@@ -1,0 +1,505 @@
+{
+  "business": {
+    "name": "ERDENTIKA",
+    "type": "dentysta",
+    "city": "Łódź",
+    "address": "Józefa Elsnera 19, 92-504 Łódź",
+    "phone": "507 221 375",
+    "email": "kontakt@erdentika.pl",
+    "logoText": "E",
+    "facebookUrl": "https://facebook.com",
+    "instagramUrl": ""
+  },
+  "description": "Czytelna strona gabinetu z ofertą, cennikiem, opiniami, FAQ i szybkim kontaktem do rejestracji.",
+  "ctaLabel": "Umów kontakt",
+  "theme": {
+    "primary": "#0ea5e9",
+    "secondary": "#e0f2fe",
+    "accent": "#14b8a6",
+    "background": "#f8fbff",
+    "foreground": "#0f172a",
+    "buttonStyle": "square",
+    "buttonRadius": "square",
+    "buttonShadow": "none",
+    "inputStyle": "minimal",
+    "inputRadius": "square",
+    "inputShadow": "none"
+  },
+  "preset": {
+    "name": "Medyczny jasny",
+    "description": "Jasny, spokojny układ z miękkimi kartami i mocnym CTA.",
+    "radius": "sharp",
+    "decorative": "geometric",
+    "heroVariant": "background-photo",
+    "eyebrowStyle": "line",
+    "serviceCardVariant": "classic",
+    "galleryVariant": "wide",
+    "gallery": {
+      "layout": "slider",
+      "columns": 3,
+      "aspect": "square",
+      "showCaptions": false,
+      "showCategories": false,
+      "enableLightbox": true,
+      "enableFilters": false
+    },
+    "galleryPage": {
+      "layout": "masonry",
+      "columns": 3,
+      "aspect": "photo",
+      "showCaptions": true,
+      "showCategories": true,
+      "enableLightbox": true,
+      "enableFilters": true
+    }
+  },
+  "media": {
+    "logo": "/media/brand/logo.png",
+    "hero": "/media/hero.webp",
+    "about": "/media/about.webp",
+    "pricing": "/media/pricing.webp",
+    "contact": "/media/contact.webp",
+    "before": "/media/before.webp",
+    "after": "/media/after.webp",
+    "gallery": [
+      "/media/gallery-1.webp",
+      "/media/gallery-2.webp",
+      "/media/gallery-3.webp"
+    ],
+    "backgrounds": {
+      "heroBackground": "",
+      "servicesBackground": "",
+      "aboutBackground": "",
+      "contactBackground": ""
+    }
+  },
+  "sections": {
+    "order": [
+      "hero",
+      "partners",
+      "stats",
+      "services",
+      "about",
+      "process",
+      "beforeAfter",
+      "gallery",
+      "blog",
+      "reviews",
+      "faq",
+      "cta",
+      "map",
+      "contact"
+    ],
+    "enabled": {
+      "hero": true,
+      "partners": true,
+      "stats": true,
+      "services": true,
+      "about": true,
+      "process": true,
+      "beforeAfter": true,
+      "gallery": true,
+      "blog": true,
+      "reviews": true,
+      "faq": true,
+      "cta": true,
+      "map": true,
+      "contact": true
+    },
+    "backgrounds": {
+      "hero": "bg-[var(--soft)]",
+      "partners": "bg-white",
+      "stats": "bg-[var(--soft)]",
+      "services": "bg-white",
+      "about": "bg-[var(--soft)]",
+      "process": "bg-white",
+      "beforeAfter": "bg-[var(--secondary)]",
+      "gallery": "bg-white",
+      "blog": "bg-[var(--soft)]",
+      "reviews": "bg-[var(--soft)]",
+      "faq": "bg-white",
+      "cta": "bg-white",
+      "map": "bg-white",
+      "contact": "bg-[var(--soft)]"
+    }
+  },
+  "pages": {
+    "about": {
+      "enabled": true,
+      "href": "/o-mnie",
+      "label": "O mnie"
+    },
+    "services": {
+      "enabled": true,
+      "href": "/uslugi",
+      "label": "Usługi"
+    },
+    "pricing": {
+      "enabled": true,
+      "href": "/cennik",
+      "label": "Cennik"
+    },
+    "gallery": {
+      "enabled": true,
+      "href": "/galeria",
+      "label": "Galeria"
+    },
+    "faq": {
+      "enabled": true,
+      "href": "/faq",
+      "label": "FAQ"
+    },
+    "contact": {
+      "enabled": true,
+      "href": "/kontakt",
+      "label": "Kontakt"
+    }
+  },
+  "navigation": {
+    "menuStyle": "dark",
+    "logoMode": "mark-text",
+    "logoHref": "",
+    "showCtaInHeader": true,
+    "cta": {
+      "label": "Umów kontakt",
+      "href": "/kontakt"
+    },
+    "items": [
+      {
+        "label": "Start",
+        "href": "/#hero",
+        "enabled": true
+      },
+      {
+        "label": "Oferta",
+        "href": "/#services",
+        "enabled": true
+      },
+      {
+        "label": "O mnie",
+        "href": "/o-mnie",
+        "enabled": true
+      },
+      {
+        "label": "Usługi",
+        "href": "/uslugi",
+        "enabled": true
+      },
+      {
+        "label": "Cennik",
+        "href": "/cennik",
+        "enabled": true
+      },
+      {
+        "label": "Galeria",
+        "href": "/galeria",
+        "enabled": true
+      },
+      {
+        "label": "Blog",
+        "href": "/blog",
+        "enabled": true
+      },
+      {
+        "label": "FAQ",
+        "href": "/faq",
+        "enabled": true
+      },
+      {
+        "label": "Mapa",
+        "href": "/#map",
+        "enabled": true
+      },
+      {
+        "label": "Kontakt",
+        "href": "/kontakt",
+        "enabled": true,
+        "highlight": true
+      }
+    ],
+    "showLandingSectionsInMenu": false,
+    "showStandalonePagesInMenu": true,
+    "maxLandingLinks": 4,
+    "ctaHref": "/kontakt"
+  },
+  "hero": {
+    "eyebrow": "Nowoczesny gabinet blisko Ciebie",
+    "title": "Spokojna, profesjonalna opieka dla całej rodziny",
+    "description": "Czytelna oferta, szybki kontakt i jasne informacje przed pierwszą wizytą.",
+    "primaryCta": "Umów kontakt",
+    "primaryHref": "/kontakt",
+    "secondaryCta": "Zobacz usługi",
+    "secondaryHref": "/uslugi",
+    "floatingCardTitle": "Szybki kontakt",
+    "floatingCardText": "Telefon, formularz i mapa w jednym miejscu.",
+    "stats": [
+      {
+        "value": "4.8",
+        "label": "ocena Google"
+      },
+      {
+        "value": "25+",
+        "label": "opinii"
+      },
+      {
+        "value": "Łódź",
+        "label": "lokalizacja"
+      }
+    ]
+  },
+  "stats": [
+    {
+      "value": 25,
+      "suffix": "+",
+      "label": "opinii klientów"
+    },
+    {
+      "value": 4.8,
+      "suffix": "/5",
+      "label": "średnia ocena"
+    },
+    {
+      "value": 3,
+      "suffix": "+",
+      "label": "główne usługi"
+    },
+    {
+      "value": 24,
+      "suffix": "h",
+      "label": "szybki kontakt"
+    }
+  ],
+  "servicesSection": {
+    "eyebrow": "Oferta gabinetu",
+    "previewTitle": "Najczęściej wybierane usługi",
+    "fullTitle": "Pełna oferta",
+    "lead": "Każda usługa może mieć własną podstronę z opisem, ceną orientacyjną i FAQ.",
+    "previewCta": "Zobacz wszystkie",
+    "cardCta": "Dowiedz się więcej"
+  },
+  "services": [
+    {
+      "title": "Stomatologia zachowawcza",
+      "short": "Leczenie próchnicy, wypełnienia i profilaktyka w spokojnych warunkach.",
+      "details": "Opis usługi na osobnej podstronie: zakres, przebieg, wskazania i CTA do kontaktu.",
+      "price": "od 150 zł",
+      "category": "Leczenie",
+      "duration": "30–60 min",
+      "bullets": [
+        "przegląd",
+        "wypełnienia",
+        "profilaktyka"
+      ]
+    },
+    {
+      "title": "Profilaktyka",
+      "short": "Higienizacja, konsultacje i plan dalszej opieki.",
+      "details": "Podstrona może opisać przebieg wizyty i odpowiedzieć na najczęstsze pytania.",
+      "price": "od 200 zł",
+      "category": "Profilaktyka",
+      "duration": "45–60 min",
+      "bullets": [
+        "higienizacja",
+        "instruktaż",
+        "kontrola"
+      ]
+    },
+    {
+      "title": "Wybielanie",
+      "short": "Bezpieczne rozjaśnienie uśmiechu z naturalnym efektem.",
+      "details": "Idealna usługa do sekcji przed/po oraz galerii efektów.",
+      "price": "od 699 zł",
+      "category": "Estetyka",
+      "duration": "60–90 min",
+      "bullets": [
+        "estetyka",
+        "bezpieczeństwo",
+        "efekt"
+      ]
+    }
+  ],
+  "about": {
+    "title": "O ERDENTIKA",
+    "text": "Lokalny gabinet, który stawia na spokojną komunikację, przejrzystą ofertę i wygodny kontakt.",
+    "pageTitle": "O gabinecie",
+    "pageLead": "Tu możesz szerzej opisać zespół, doświadczenie, sprzęt i podejście do pacjenta.",
+    "paragraphs": [
+      "To jest dłuższy opis na podstronę O mnie/O firmie.",
+      "Konfigurator pozwala zmienić tę treść bez dotykania komponentów React.",
+      "Możesz też zmienić zdjęcia, tła, kolejność sekcji oraz widoczność podstron."
+    ]
+  },
+  "process": [
+    "Wybór usługi",
+    "Kontakt",
+    "Ustalenie terminu",
+    "Wizyta i dalsza opieka"
+  ],
+  "beforeAfter": {
+    "title": "Przed i po",
+    "text": "Sekcja może pokazywać efekt usługi, realizacji albo metamorfozy.",
+    "beforeLabel": "Przed",
+    "afterLabel": "Po"
+  },
+  "partnersSection": {
+    "showHeader": false,
+    "showNames": false,
+    "title": "Partnerzy i współprace",
+    "description": ""
+  },
+  "partners": [
+    {
+      "name": "Partner 1",
+      "logo": "/partners/partner-1.svg"
+    },
+    {
+      "name": "Partner 2",
+      "logo": "/partners/partner-2.svg"
+    },
+    {
+      "name": "Partner 3",
+      "logo": "/partners/partner-3.svg"
+    },
+    {
+      "name": "Partner 4",
+      "logo": "/partners/partner-4.svg"
+    }
+  ],
+  "blog": {
+    "enabled": true,
+    "title": "Porady i aktualności",
+    "description": "Najnowsze wpisy z bloga przypisane do tej strony w Supabase.",
+    "landingLimit": 3,
+    "pageTitle": "Blog",
+    "pageDescription": "Wszystkie opublikowane wpisy.",
+    "showImages": true,
+    "emptyTitle": "Brak wpisów",
+    "emptyDescription": "Dodaj wpisy w Supabase i ustaw site_slug zgodny z site.slug w konfiguracji.",
+    "fallbackImage": "/media/og-image.svg"
+  },
+  "map": {
+    "showHeader": false,
+    "title": "Jak do nas trafić",
+    "description": "Mapa Google na pełną szerokość strony.",
+    "query": "ERDENTIKA Józefa Elsnera 19 Łódź",
+    "embedUrl": "",
+    "height": 420
+  },
+  "pricing": [
+    {
+      "name": "Konsultacja",
+      "price": "od 150 zł",
+      "features": [
+        "wywiad",
+        "ocena",
+        "plan dalszych kroków"
+      ]
+    },
+    {
+      "name": "Profilaktyka",
+      "price": "od 200 zł",
+      "features": [
+        "higienizacja",
+        "instruktaż",
+        "kontrola"
+      ]
+    },
+    {
+      "name": "Wybielanie",
+      "price": "od 699 zł",
+      "features": [
+        "kontrola",
+        "bezpieczny przebieg",
+        "zalecenia"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "q": "Jak umówić termin?",
+      "a": "Najprościej telefonicznie lub przez formularz kontaktowy."
+    },
+    {
+      "q": "Czy cennik jest ostateczny?",
+      "a": "Ceny są przykładowe i zależą od zakresu usługi."
+    },
+    {
+      "q": "Czy można wyłączyć tę sekcję?",
+      "a": "Tak, ustaw odpowiednią wartość w sections.enabled."
+    }
+  ],
+  "reviews": [
+    {
+      "author": "Anna",
+      "rating": 5,
+      "text": "Bardzo profesjonalna obsługa i szybki kontakt."
+    },
+    {
+      "author": "Marek",
+      "rating": 5,
+      "text": "Czytelna oferta i dobra komunikacja."
+    },
+    {
+      "author": "Kasia",
+      "rating": 5,
+      "text": "Polecam, wszystko jasno wyjaśnione."
+    }
+  ],
+  "social": [
+    {
+      "name": "Facebook",
+      "href": "https://facebook.com",
+      "icon": "/social/facebook.png"
+    },
+    {
+      "name": "Google Maps",
+      "href": "https://maps.google.com",
+      "icon": "/social/google-maps.png"
+    }
+  ],
+  "gallerySection": {
+    "title": "Galeria realizacji",
+    "description": "Zdjęcia można filtrować, powiększać i układać w różnych wariantach."
+  },
+  "galleryItems": [
+    {
+      "title": "Realizacja 1",
+      "category": "Wnętrze",
+      "description": "Krótki opis zdjęcia lub efektu.",
+      "alt": "Opis zdjęcia dla SEO i dostępności"
+    },
+    {
+      "title": "Realizacja 2",
+      "category": "Detale",
+      "description": "Możesz filtrować zdjęcia po kategoriach.",
+      "alt": "Opis zdjęcia dla SEO i dostępności"
+    },
+    {
+      "title": "Realizacja 3",
+      "category": "Efekt",
+      "description": "Kliknięcie otwiera zdjęcie w lightboxie.",
+      "alt": "Opis zdjęcia dla SEO i dostępności"
+    }
+  ],
+  "galleryOptionsHelp": {
+    "layout": [
+      "featured — najlepsze na landing page: jedno duże zdjęcie + mniejsze kafle",
+      "grid — równa siatka, spokojny układ",
+      "masonry — portfolio z dynamicznym układem",
+      "slider — poziomy pasek zdjęć"
+    ],
+    "columns": [
+      "2",
+      "3",
+      "4"
+    ],
+    "aspect": [
+      "square — kwadrat",
+      "photo — klasyczne 4:3",
+      "wide — szerokie",
+      "portrait — pionowe"
+    ],
+    "booleans": "true = włączone, false = wyłączone"
+  },
+  "instagramUrl": ""
+}

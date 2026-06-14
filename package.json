@@ -1,0 +1,29 @@
+{
+  "name": "luminso-starter",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.106.1",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.16.0",
+    "next": "latest",
+    "postcss": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "tailwind-merge": "^3.6.0",
+    "tailwindcss": "latest",
+    "typescript": "latest"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.0"
+  }
+}

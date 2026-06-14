@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+:root{
+  --brand-bg:#020617;
+  --brand-soft:#06111f;
+  --brand-surface:#08111f;
+  --brand-surface-2:#0b1730;
+  --brand-primary:#38bdf8;
+  --brand-primary-hover:#7dd3fc;
+  --brand-primary-soft:#bae6fd;
+  --brand-accent:#8b5cf6;
+  --brand-text:#eef6ff;
+  --brand-muted:#9fb3d1;
+  --brand-line:rgba(148,163,184,.18);
+  --brand-on-primary:#020617;
+  --primary:var(--brand-primary);
+  --secondary:#1e40af;
+  --accent:var(--brand-accent);
+  --background:var(--brand-bg);
+  --surface:var(--brand-surface);
+  --surface-2:var(--brand-surface-2);
+  --foreground:var(--brand-text);
+  --muted:var(--brand-muted);
+  --line:var(--brand-line);
+  --soft:var(--brand-soft);
+  --dark:var(--brand-bg);
+  --radius:24px;
+  scroll-behavior:smooth;
+}
+*{box-sizing:border-box}
+html{background:var(--background)}
+body{margin:0;background:radial-gradient(circle at 15% 0%,rgba(56,189,248,.16),transparent 34%),radial-gradient(circle at 85% 10%,rgba(139,92,246,.14),transparent 32%),var(--background);color:var(--foreground);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:inherit;text-decoration:none}.container{width:min(1120px,calc(100% - 32px));margin-inline:auto}.section{padding:92px 0}.text-balance{text-wrap:balance}
+.card{border:1px solid var(--brand-line);background:linear-gradient(180deg,rgba(15,23,42,.86),rgba(15,23,42,.68));box-shadow:0 24px 70px rgba(0,0,0,.28);backdrop-filter:blur(16px);color:var(--brand-text)}
+.card p,.card li{color:var(--brand-muted)}
+.glass{background:rgba(15,23,42,.62);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.12)}
+.btn,.btn-primary,.btn-secondary{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;border-radius:999px;padding:.85rem 1.15rem;font-weight:900;transition:.2s}.btn-primary{background:var(--brand-primary);color:var(--brand-on-primary);border:1px solid var(--brand-primary)}.btn-secondary{background:rgba(56,189,248,.10);color:var(--brand-primary-soft);border:1px solid rgba(56,189,248,.42)}.btn:hover,.btn-primary:hover,.btn-secondary:hover{transform:translateY(-2px)}
+.soft-radius{border-radius:30px}.rounded-radius{border-radius:22px}.sharp-radius{border-radius:8px}
+img{max-width:100%}.scrollbar-hide{-ms-overflow-style:none;scrollbar-width:none}.scrollbar-hide::-webkit-scrollbar{display:none}
+::selection{background:rgba(56,189,248,.35)}
+input,textarea{color:#eef6ff!important;background:rgba(2,6,23,.72)!important;border-color:rgba(148,163,184,.28)!important}input::placeholder,textarea::placeholder{color:#7f93b4!important}
+
+
+.brand-eyebrow{color:var(--brand-primary-soft)}
+.brand-heading{color:var(--brand-text);letter-spacing:-.05em}
+.brand-copy{color:var(--brand-muted)}
+.brand-section-dark{background:var(--brand-bg);color:var(--brand-text)}
+.brand-section-soft{background:var(--brand-soft);color:var(--brand-text)}
+.brand-card{border:1px solid var(--brand-line);background:linear-gradient(180deg,rgba(15,23,42,.86),rgba(15,23,42,.68));box-shadow:0 24px 70px rgba(0,0,0,.28);backdrop-filter:blur(16px)}
+
+
+.blog-content{color:var(--brand-muted)}
+.blog-content h2,.blog-content h3{color:var(--brand-text)}
+.blog-content p{color:var(--brand-muted)}
+.blog-content a{color:var(--brand-primary-soft);font-weight:800;text-decoration:underline;text-underline-offset:4px}
+.reveal{
+  opacity:0;
+  transform:translate3d(0,86px,0) scale(.982);
+  transition:
+    opacity .95s cubic-bezier(.16,1,.3,1),
+    transform .95s cubic-bezier(.16,1,.3,1);
+  will-change:opacity,transform;
+}
+.section-slide-reveal{
+  display:block;
+}
+.reveal-from-up{transform:translate3d(0,86px,0) scale(.982)}
+.reveal-from-left{transform:translate3d(-96px,0,0) scale(.982)}
+.reveal-from-right{transform:translate3d(96px,0,0) scale(.982)}
+.reveal-from-down{transform:translate3d(0,-70px,0) scale(.982)}
+.reveal-from-none{transform:none}
+.reveal-visible{opacity:1;transform:translate3d(0,0,0) scale(1)}
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1!important;transform:none!important;transition:none!important}
+}
