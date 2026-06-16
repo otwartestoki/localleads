@@ -20,16 +20,33 @@ export function contactHref(intent: ContactIntent = {}) {
 }
 
 export function buildContactMessage(intent: ContactIntent = {}) {
-  const parts = [];
+  const industry = intent.industry ? `- Branża: ${intent.industry}` : '- Branża:';
+  const city = intent.city ? `- Miasto/obszar: ${intent.city}` : '- Miasto/obszar:';
+  const topic = intent.topic ? `- Temat: ${intent.topic}` : '- Temat:';
 
-  if (intent.packageName) parts.push(`pakiet: ${intent.packageName}`);
-  if (intent.industry) parts.push(`branża: ${intent.industry}`);
-  if (intent.city) parts.push(`lokalizacja: ${intent.city}`);
-  if (intent.topic) parts.push(intent.topic);
+  if (intent.packageName) {
+    return `Dzień dobry,
 
-  if (parts.length === 0) {
-    return 'Dzień dobry, interesuje mnie baza leadów B2B w CSV. Proszę o propozycję zakresu i ceny.';
+chciałbym zamówić eksport danych do pliku CSV.
+
+Interesuje mnie:
+- Zakres: ${intent.packageName}
+${industry}
+${city}
+- Przybliżona liczba rekordów:
+
+Proszę o informację, czy taki eksport jest możliwy i jaka byłaby cena.`;
   }
 
-  return `Dzień dobry, interesuje mnie ${parts.join(', ')}. Proszę o propozycję zakresu, dostępności danych i ceny.`;
+  return `Dzień dobry,
+
+korzystam z darmowej bazy firm LocalLeads i potrzebuję dodatkowych danych lub eksportu CSV.
+
+Interesuje mnie:
+${topic}
+${industry}
+${city}
+- Przybliżona liczba rekordów:
+
+Proszę o informację, czy taki zakres jest dostępny i jaka byłaby cena eksportu.`;
 }

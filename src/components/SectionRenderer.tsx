@@ -11,6 +11,7 @@ import Reviews from './sections/Reviews';
 import FAQ from './sections/FAQ';
 import CTA from './sections/CTA';
 import Contact from './sections/Contact';
+import LuminsoBanner from './sections/LuminsoBanner';
 import GoogleMap from './sections/GoogleMap';
 import Blog from './sections/Blog';
 import Reveal from './ui/Reveal';
@@ -52,6 +53,8 @@ export default function SectionRenderer() {
 
           const from = revealDirections[index % revealDirections.length];
 
+          const content = <C />;
+
           return (
             <Reveal
               key={s.type}
@@ -60,7 +63,14 @@ export default function SectionRenderer() {
               threshold={0.06}
               className="section-slide-reveal"
             >
-              <C />
+              {s.type === 'contact' ? (
+                <>
+                  <LuminsoBanner />
+                  {content}
+                </>
+              ) : (
+                content
+              )}
             </Reveal>
           );
         })}

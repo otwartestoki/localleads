@@ -117,14 +117,14 @@ function getHeroCtas() {
 
   const primaryCta = getCta(
     heroContent.primaryCta,
-    'Zamów próbkę CSV',
-    heroContent.primaryHref && heroContent.primaryHref !== '/kontakt' ? heroContent.primaryHref : contactHref({ source: 'hero', topic: 'próbka CSV' }),
+    'Przeglądaj bazę firm',
+    heroContent.primaryHref && heroContent.primaryHref !== '/kontakt' ? heroContent.primaryHref : contactHref({ source: 'hero', topic: 'eksport CSV lub brakujące dane' }),
   );
 
   const secondaryCta = getCta(
     heroContent.secondaryCta,
-    'Zobacz cennik',
-    heroContent.secondaryHref || '/cennik',
+    'Skontaktuj się',
+    heroContent.secondaryHref || '/kontakt',
   );
 
   return { primaryCta, secondaryCta };

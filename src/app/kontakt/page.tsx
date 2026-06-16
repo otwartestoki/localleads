@@ -7,8 +7,8 @@ import { pageMetadata } from '@/lib/seo';
 import { notFound } from 'next/navigation';
 
 export const metadata = pageMetadata({
-  title: 'Kontakt — zamów bazę leadów B2B CSV',
-  description: 'Zamów bazę leadów B2B w CSV. Podaj branżę, miasto lub region, a LocalLeads przygotuje propozycję zakresu i ceny.',
+  title: 'Kontakt — eksport CSV i brakujące dane',
+  description: 'Skontaktuj się, jeśli potrzebujesz eksportu CSV z LocalLeads albo chcesz zgłosić brakującą branżę, miasto lub błąd w bazie firm.',
   path: '/kontakt',
 });
 

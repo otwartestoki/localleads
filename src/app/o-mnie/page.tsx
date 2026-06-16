@@ -1,20 +1,29 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 import PageShell from '@/components/pages/PageShell';
 import { content } from '@/config/content';
 import { pages } from '@/config/pages';
 import { site } from '@/config/site';
-import { radiusClass } from '@/lib/style';
+import { contactHref } from '@/lib/contact';
 import { pageMetadata } from '@/lib/seo';
+import { radiusClass } from '@/lib/style';
+import { getButtonClass } from '@/lib/uiStyles';
 
 export const metadata = pageMetadata({
-  title: 'O LocalLeads — praktyczne bazy leadów B2B',
-  description: 'Poznaj podejście LocalLeads do przygotowywania praktycznych baz firm w CSV: branża, lokalizacja, czyszczenie danych i ręczna kontrola.',
+  title: 'O LocalLeads — darmowa baza firm i eksport CSV',
+  description:
+    'LocalLeads to darmowa baza firm do przeglądania online. Płatny jest tylko eksport danych do CSV lub przygotowanie indywidualnego zakresu.',
   path: '/o-mnie',
 });
 
 const ABOUT_IMAGE = '/media/about/about-person.webp';
+
+type AboutCard = {
+  title: string;
+  text: string;
+};
 
 export default function AboutPage() {
   const aboutPage = pages.about as {
@@ -30,15 +39,12 @@ export default function AboutPage() {
     pageTitle?: string;
     pageLead?: string;
     paragraphs?: readonly string[];
+    cards?: readonly AboutCard[];
   };
 
   if (aboutPage.enabled === false) notFound();
 
-  const title =
-    aboutContent.pageTitle ||
-    aboutPage.title ||
-    aboutContent.title ||
-    'O LocalLeads';
+  const title = aboutContent.pageTitle || aboutPage.title || aboutContent.title || 'O LocalLeads';
 
   const lead =
     aboutContent.pageLead ||
@@ -51,6 +57,8 @@ export default function AboutPage() {
     aboutContent.paragraphs && aboutContent.paragraphs.length > 0
       ? aboutContent.paragraphs
       : [aboutContent.text || lead];
+
+  const cards = aboutContent.cards || [];
 
   return (
     <PageShell>
@@ -68,9 +76,19 @@ export default function AboutPage() {
               {title}
             </h1>
 
-            <p className="mt-5 text-lg leading-8 opacity-75">
-              {lead}
-            </p>
+            <p className="mt-5 text-lg leading-8 opacity-75">{lead}</p>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link href="/baza-firm" className={getButtonClass({ tone: 'primary' })}>
+                Przeglądaj bazę firm
+              </Link>
+              <Link
+                href={contactHref({ source: 'podstrona O mnie', topic: 'eksport danych do CSV' })}
+                className={getButtonClass({ tone: 'secondary' })}
+              >
+                Zapytaj o eksport CSV
+              </Link>
+            </div>
 
             <div className={`${radiusClass()} card mt-8 overflow-hidden p-3`}>
               <div className="relative aspect-[4/5] overflow-hidden rounded-[calc(var(--radius)-.5rem)] bg-[var(--secondary)]">
@@ -93,6 +111,17 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
+
+        {cards.length > 0 ? (
+          <div className="container mt-10 grid gap-4 md:grid-cols-3">
+            {cards.map((card) => (
+              <div key={card.title} className={`${radiusClass()} card p-6`}>
+                <h2 className="text-xl font-black">{card.title}</h2>
+                <p className="mt-3 leading-7 opacity-75">{card.text}</p>
+              </div>
+            ))}
+          </div>
+        ) : null}
       </section>
     </PageShell>
   );

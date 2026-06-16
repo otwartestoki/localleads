@@ -5,7 +5,6 @@ import Link from "next/link";
 import { site } from "@/config/site";
 import { media } from "@/config/media";
 import { getButtonClass } from "@/lib/uiStyles";
-import { contactHref } from "@/lib/contact";
 
 function getLogoSrc() {
   const logo = media?.logo as any;
@@ -13,7 +12,7 @@ function getLogoSrc() {
 }
 
 function getCompanyName() {
-  return (site as any)?.brand?.name || (site as any)?.name || "LocalLeads";
+  return (site as any)?.brand?.name || (site as any)?.business?.name || (site as any)?.name || "LocalLeads";
 }
 
 function getNavigationItems() {
@@ -23,7 +22,9 @@ function getNavigationItems() {
   const pageOrder = [
     "landing",
     "services",
-    "pricing",
+    "database",
+    "index",
+    "landings",
     "about",
     "gallery",
     "blog",
@@ -48,8 +49,8 @@ function getNavigationItems() {
 
   return [
     { label: "Start", href: "/" },
-    { label: "Oferta", href: "/uslugi" },
-    { label: "Cennik", href: "/cennik" },
+    { label: "Baza firm", href: "/baza-firm" },
+    { label: "Indeks bazy", href: "/indeks-bazy" },
     { label: "O mnie", href: "/o-mnie" },
     { label: "FAQ", href: "/faq" },
     { label: "Kontakt", href: "/kontakt" },
@@ -60,8 +61,8 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const nav = getNavigationItems();
   const name = getCompanyName();
-  const ctaLabel = (site as any)?.navigation?.cta?.label || (site as any)?.ctaLabel || "Zamów CSV";
-  const ctaHref = contactHref({ source: "nagłówek", topic: "zamówienie bazy leadów CSV" });
+  const ctaLabel = (site as any)?.navigation?.cta?.label || (site as any)?.ctaLabel || "Baza firm";
+  const ctaHref = (site as any)?.navigation?.cta?.href || "/baza-firm";
 
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--brand-line)] bg-[var(--brand-bg)]/90 text-white backdrop-blur-xl">

@@ -6,8 +6,8 @@ import { pageMetadata } from '@/lib/seo';
 import { notFound } from 'next/navigation';
 
 export const metadata = pageMetadata({
-  title: 'FAQ — bazy leadów B2B CSV',
-  description: 'Najczęstsze pytania o LocalLeads: pakiety jednorazowe od 99 zł, abonament od 79 zł miesięcznie, CSV, social media, zakres danych i zamówienie bazy leadów.',
+  title: 'FAQ — darmowa baza firm i eksport CSV',
+  description: 'Najczęstsze pytania o LocalLeads: darmowa baza firm, wyszukiwanie danych, eksport CSV, brakujące branże i miasta oraz zgłaszanie błędów.',
   path: '/faq',
 });
 

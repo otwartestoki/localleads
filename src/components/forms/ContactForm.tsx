@@ -73,14 +73,14 @@ export default function ContactForm({ source, topic, packageName, city, industry
       <input
         className={getInputClass()}
         name="topic"
-        placeholder="Branża / miasto / region"
+        placeholder="Eksport CSV / brakująca branża / brakujące miasto"
         defaultValue={subject || topic || ''}
         required
       />
       <textarea
         className={getInputClass({ className: compact ? 'min-h-28' : 'min-h-40' })}
         name="message"
-        placeholder="Np. salony beauty w Łodzi, dentysta Warszawa, firmy budowlane woj. śląskie"
+        placeholder="Opisz, czego potrzebujesz: eksport CSV, brakująca branża, brakujące miasto lub zgłoszenie błędu w bazie."
         defaultValue={message}
         required
       />
@@ -96,12 +96,12 @@ export default function ContactForm({ source, topic, packageName, city, industry
       />
 
       <button className={getButtonClass({ tone: 'primary' })} type="submit" disabled={isSending}>
-        {isSending ? 'Wysyłanie...' : 'Wyślij zapytanie'}
+        {isSending ? 'Wysyłanie...' : 'Wyślij wiadomość'}
       </button>
 
       {status === 'success' ? (
         <p className="rounded-2xl border border-emerald-400/30 bg-emerald-400/10 px-4 py-3 text-sm text-emerald-100">
-          Dziękujemy. Wiadomość została wysłana. Odpowiemy możliwie szybko.
+          Dziękuję. Wiadomość została wysłana. Odpowiem możliwie szybko.
         </p>
       ) : null}
 

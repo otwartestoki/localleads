@@ -1,18 +1,18 @@
 export const content = {
   "hero": {
-    "eyebrow": "Ręcznie sprawdzane leady B2B w CSV",
-    "title": "Gotowe bazy firm z Polski — według branży, miasta lub regionu",
-    "description": "LocalLeads pomaga agencjom SEO, twórcom stron, handlowcom B2B i firmom szukającym partnerów szybciej dotrzeć do lokalnych biznesów. Otrzymujesz czysty plik CSV, który możesz od razu filtrować, importować do CRM albo wykorzystać w kampanii kontaktowej.",
-    "primaryCta": "Zamów próbkę CSV",
-    "primaryHref": "/kontakt",
-    "secondaryCta": "Zobacz cennik",
-    "secondaryHref": "/cennik",
-    "floatingCardTitle": "Jeden standard danych",
-    "floatingCardText": "Każda paczka zawiera dane kontaktowe oraz social media, jeśli są publicznie dostępne. Różnica między pakietami dotyczy głównie liczby firm.",
+    "eyebrow": "Darmowa baza firm do przeglądania",
+    "title": "Otwarta baza firm dla sprzedaży, SEO i lokalnego prospectingu",
+    "description": "LocalLeads udostępnia bazę firm za darmo, żebyś mógł szybko sprawdzić lokalne biznesy, branże i dane kontaktowe. To narzędzie dla agencji SEO, twórców stron, handlowców B2B i osób budujących kampanie lokalne. Płatny jest tylko eksport CSV albo przygotowanie zakresu, którego jeszcze nie ma w bazie.",
+    "primaryCta": "Przeglądaj bazę firm",
+    "primaryHref": "/baza-firm",
+    "secondaryCta": "Zapytaj o eksport CSV",
+    "secondaryHref": "/kontakt",
+    "floatingCardTitle": "Darmowy dostęp",
+    "floatingCardText": "Podstawą LocalLeads jest otwarta baza do przeglądania. Eksport CSV jest opcją dla osób, które chcą pracować na pliku albo potrzebują konkretnego zakresu.",
     "stats": [
       {
         "value": "CSV",
-        "label": "format gotowy do CRM"
+        "label": "baza dostępna na stronie"
       },
       {
         "value": "PL",
@@ -43,10 +43,10 @@ export const content = {
   ],
   "servicesSection": {
     "eyebrow": "Oferta LocalLeads",
-    "previewTitle": "Jakie bazy możesz zamówić?",
-    "fullTitle": "Bazy leadów dopasowane do Twojej sprzedaży",
-    "lead": "Nie sprzedajemy jednej przypadkowej listy dla wszystkich. Dane przygotowujemy jako paczki: branża + miasto, branża + region albo szeroka baza lokalnych firm.",
-    "previewCta": "Zobacz pełną ofertę",
+    "previewTitle": "Dla kogo jest LocalLeads?",
+    "fullTitle": "Darmowa baza firm dla osób, które pracują na danych",
+    "lead": "Korzystasz z danych na stronie za darmo. Płacisz tylko wtedy, gdy chcesz eksport CSV albo potrzebujesz miasta lub branży, której jeszcze nie ma w bazie.",
+    "previewCta": "Zobacz bazę firm",
     "cardCta": "Sprawdź szczegóły"
   },
   "services": [
@@ -112,14 +112,30 @@ export const content = {
     }
   ],
   "about": {
-    "title": "O mnie i LocalLeads",
-    "text": "Tworzę praktyczne narzędzia do pozyskiwania klientów: od stron internetowych i CRM po uporządkowane bazy leadów. LocalLeads jest produktem dla osób, które nie chcą tracić godzin na ręczne przeklejanie danych z wizytówek, stron i social mediów.",
-    "pageTitle": "O mnie",
-    "pageLead": "Za LocalLeads stoi praktyczne podejście: baza ma być użyteczna, czytelna i gotowa do pracy, a nie tylko długa.",
+    "title": "Darmowa baza firm, która ma być naprawdę użyteczna",
+    "text": "LocalLeads nie jest już zamkniętym katalogiem paczek do kupienia. To darmowa baza firm do przeglądania online — dla osób, które szukają lokalnych firm, analizują rynek, budują listy kontaktów albo pracują nad SEO i sprzedażą B2B.",
+    "pageTitle": "O LocalLeads",
+    "pageLead": "LocalLeads powstało po to, żeby publiczne dane o firmach były łatwiejsze do znalezienia, przeszukiwania i wykorzystania bez konieczności kupowania paczki w ciemno.",
     "paragraphs": [
-      "Pomysł na LocalLeads powstał przy pracy nad lokalną sprzedażą usług internetowych. Szybko okazało się, że największym problemem nie jest sama oferta, ale uporządkowane znalezienie firm, sprawdzenie kontaktów i przygotowanie danych w formacie, który da się wykorzystać w CRM.",
-      "Dlatego każda paczka jest budowana wokół realnego zastosowania: agencja SEO może szukać firm bez widoczności w Google, twórca stron może znaleźć biznesy z przestarzałą witryną, handlowiec B2B może zebrać kontakty z wybranego regionu, a firma usługowa może znaleźć partnerów lokalnych.",
-      "Nie obiecuję magicznej sprzedaży. Dostarczam uporządkowany punkt startowy: rekordy w CSV, sensowny podział, ręczną kontrolę i możliwość przygotowania paczek pod konkretną branżę lub region Polski."
+      "LocalLeads rozwijam jako otwartą bazę lokalnych firm. Chcę, żeby użytkownik mógł wejść na stronę, wpisać branżę, miasto, nazwę firmy albo dowolną frazę i od razu sprawdzić dostępne dane bez rejestracji oraz bez opłat.",
+      "Darmowe przeglądanie bazy jest podstawą projektu. Dzięki temu strona ma być przydatna dla agencji SEO, twórców stron internetowych, handlowców B2B, freelancerów, lokalnych przedsiębiorców i osób, które chcą szybko zorientować się, jakie firmy działają w danej branży lub okolicy.",
+      "Płatny pozostaje wyłącznie eksport danych do pliku CSV. To rozwiązanie dla osób, które nie chcą kopiować rekordów ręcznie i potrzebują wygodnego pliku do dalszej pracy w arkuszu, CRM, kampanii sprzedażowej albo analizie rynku.",
+      "Jeżeli w bazie nie ma jeszcze konkretnej branży, miasta lub zakresu danych, można wysłać zapytanie przez formularz. Wtedy sprawdzam, czy taki zestaw da się przygotować i wyceniam eksport zależnie od liczby rekordów oraz zakresu pracy.",
+      "Celem LocalLeads jest zbudowanie możliwie największej, czytelnej i praktycznej bazy firm w Polsce — takiej, która pomaga użytkownikom za darmo, a zarabia dopiero wtedy, gdy ktoś potrzebuje wygodnego eksportu CSV."
+    ],
+    "cards": [
+      {
+        "title": "Darmowe przeglądanie",
+        "text": "Baza firm jest dostępna online bez rejestracji i bez płatnego dostępu."
+      },
+      {
+        "title": "Wyszukiwanie po danych",
+        "text": "Możesz szukać po nazwie, branży, adresie, telefonie, stronie WWW i innych widocznych polach."
+      },
+      {
+        "title": "Płatny eksport CSV",
+        "text": "Płacisz tylko wtedy, gdy chcesz otrzymać dane w pliku CSV albo potrzebujesz indywidualnego zakresu."
+      }
     ]
   },
   "beforeAfter": {},
@@ -196,10 +212,10 @@ export const content = {
     }
   ],
   "process": [
-    "Wybierasz branżę, miasto lub region",
-    "Dobieramy pakiet do liczby firm i zakresu",
-    "Zbieram i czyszczę dane w CSV",
-    "Ręcznie sprawdzam rekordy i przekazuję plik"
+    "Korzystasz z darmowej bazy firm na stronie",
+    "Filtrujesz rekordy po branży, mieście i danych kontaktowych",
+    "Jeśli potrzebujesz czegoś, czego nie ma w bazie, wysyłasz zapytanie",
+    "Płatny jest eksport CSV — cena zależy od liczby leadów"
   ],
   "faq": [
     {
