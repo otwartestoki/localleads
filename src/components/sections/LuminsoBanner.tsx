@@ -2,26 +2,38 @@ import Image from 'next/image';
 
 export default function LuminsoBanner() {
   return (
-    <section className="section pt-0">
-      <div className="container">
-        <a
-          href="https://www.luminso.pl"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Poznaj Luminso — strony internetowe dla firm"
-          className="group block overflow-hidden rounded-3xl border border-white/10 bg-[#020916] shadow-[0_24px_80px_rgba(0,0,0,.35)] transition duration-300 hover:border-sky-400/40"
-        >
+    <section className="py-8 md:py-10">
+      <a
+        href="https://www.luminso.pl"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Poznaj Luminso — strony internetowe dla firm"
+        className="mx-auto block w-full max-w-[1120px] leading-none"
+      >
+        {/* Desktop / tablet */}
+        <div className="relative hidden aspect-[1724/456] w-full overflow-hidden rounded-[28px] md:block">
           <Image
-            src="/media/luminso-baner.jpg"
+            src="/media/luminso-baner.webp"
             alt="Luminso — profesjonalne strony internetowe i obecność w internecie"
-            width={1774}
-            height={461}
+            fill
             priority
-            className="block h-auto w-full scale-105"
-            sizes="100vw"
+            className="scale-[1.05] object-cover object-center"
+            sizes="(min-width: 768px) 1120px, 0px"
           />
-        </a>
-      </div>
+        </div>
+
+        {/* Mobile */}
+        <div className="relative block aspect-[1122/1402] w-full overflow-hidden rounded-[24px] md:hidden">
+          <Image
+            src="/media/luminso-baner-mobile.webp"
+            alt="Luminso — profesjonalne strony internetowe i obecność w internecie"
+            fill
+            priority
+            className="scale-[1.05] object-cover object-center"
+            sizes="(max-width: 767px) calc(100vw - 32px), 0px"
+          />
+        </div>
+      </a>
     </section>
   );
 }
