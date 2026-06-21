@@ -10,7 +10,7 @@
     "facebookUrl": "https://facebook.com",
     "instagramUrl": ""
   },
-  "description": "Czytelna strona gabinetu z ofertą, cennikiem, opiniami, FAQ i szybkim kontaktem do rejestracji.",
+  "description": "Czytelna strona z informacjami, opiniami, FAQ i szybkim kontaktem.",
   "ctaLabel": "Umów kontakt",
   "theme": {
     "primary": "#0ea5e9",
@@ -136,8 +136,8 @@
     },
     "pricing": {
       "enabled": true,
-      "href": "/cennik",
-      "label": "Cennik"
+      "href": "/kontakt",
+      "label": "Kontakt"
     },
     "gallery": {
       "enabled": true,
@@ -186,8 +186,8 @@
         "enabled": true
       },
       {
-        "label": "Cennik",
-        "href": "/cennik",
+        "label": "Kontakt",
+        "href": "/kontakt",
         "enabled": true
       },
       {
@@ -282,7 +282,7 @@
       "title": "Stomatologia zachowawcza",
       "short": "Leczenie próchnicy, wypełnienia i profilaktyka w spokojnych warunkach.",
       "details": "Opis usługi na osobnej podstronie: zakres, przebieg, wskazania i CTA do kontaktu.",
-      "price": "od 150 zł",
+      "price": "kontakt",
       "category": "Leczenie",
       "duration": "30–60 min",
       "bullets": [
@@ -295,7 +295,7 @@
       "title": "Profilaktyka",
       "short": "Higienizacja, konsultacje i plan dalszej opieki.",
       "details": "Podstrona może opisać przebieg wizyty i odpowiedzieć na najczęstsze pytania.",
-      "price": "od 200 zł",
+      "price": "kontakt",
       "category": "Profilaktyka",
       "duration": "45–60 min",
       "bullets": [
@@ -308,7 +308,7 @@
       "title": "Wybielanie",
       "short": "Bezpieczne rozjaśnienie uśmiechu z naturalnym efektem.",
       "details": "Idealna usługa do sekcji przed/po oraz galerii efektów.",
-      "price": "od 699 zł",
+      "price": "kontakt",
       "category": "Estetyka",
       "duration": "60–90 min",
       "bullets": [
@@ -388,7 +388,7 @@
   "pricing": [
     {
       "name": "Konsultacja",
-      "price": "od 150 zł",
+      "price": "kontakt",
       "features": [
         "wywiad",
         "ocena",
@@ -397,7 +397,7 @@
     },
     {
       "name": "Profilaktyka",
-      "price": "od 200 zł",
+      "price": "kontakt",
       "features": [
         "higienizacja",
         "instruktaż",
@@ -406,7 +406,7 @@
     },
     {
       "name": "Wybielanie",
-      "price": "od 699 zł",
+      "price": "kontakt",
       "features": [
         "kontrola",
         "bezpieczny przebieg",
@@ -420,7 +420,7 @@
       "a": "Najprościej telefonicznie lub przez formularz kontaktowy."
     },
     {
-      "q": "Czy cennik jest ostateczny?",
+      "q": "Czy informacje są aktualne?",
       "a": "Ceny są przykładowe i zależą od zakresu usługi."
     },
     {

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import PageShell from '@/components/pages/PageShell';
 import { contactHref } from '@/lib/contact';
-import { pageMetadata, productJsonLd } from '@/lib/seo';
+import { pageMetadata } from '@/lib/seo';
 import { getSeoCity, getSeoCombinations, getSeoIndustry, seoCities, seoIndustries } from '@/data/seo-pages';
 
 type Props = { params: Promise<{ city: string; industry: string }> };
@@ -18,8 +18,8 @@ export async function generateMetadata({ params }: Props) {
   if (!cityData || !industryData) return {};
 
   return pageMetadata({
-    title: `Leady ${industryData.name} ${cityData.name} — baza firm CSV`,
-    description: `Baza firm: ${industryData.name} w mieście ${cityData.name}. Kontakty B2B, telefony, strony WWW, social media i eksport CSV/XLSX.`,
+    title: `${industryData.name} ${cityData.name} — darmowa baza firm`,
+    description: `Przeglądaj bazę firm: ${industryData.name} w mieście ${cityData.name}. Kontakty B2B, telefony, strony WWW i social media, jeśli są dostępne publicznie.`,
     path: `/leady/${city}/${industry}`,
   });
 }
@@ -32,24 +32,22 @@ export default async function CityIndustryPage({ params }: Props) {
 
   const nearbyCities = seoCities.filter((item) => item.slug !== cityData.slug).slice(0, 8);
   const relatedIndustries = seoIndustries.filter((item) => item.slug !== industryData.slug).slice(0, 8);
-  const title = `Leady ${industryData.name} ${cityData.name}`;
+  const title = `${industryData.name} ${cityData.name}`;
 
   return (
     <PageShell>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd({ name: title, description: `Baza firm ${industryData.name} w lokalizacji ${cityData.name} w formacie CSV/XLSX.`, path: `/leady/${cityData.slug}/${industryData.slug}`, lowPrice: '99', highPrice: '599' })) }} />
-
       <section className="bg-slate-950 px-5 py-20 text-white md:px-8">
         <div className="mx-auto max-w-7xl">
           <p className="text-sm font-black uppercase tracking-[.2em] text-cyan-200">Landing SEO miasto + branża</p>
           <h1 className="mt-4 max-w-5xl text-5xl font-black tracking-[-.06em] md:text-7xl">
-            {title} — baza firm CSV/XLSX
+            {title} — darmowa baza firm
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-white/75">
-            Zamów paczkę kontaktów do firm z branży {industryData.name} w mieście {cityData.name}. To gotowa baza pod prospecting, kampanie sprzedażowe i ofertowanie lokalnych usług B2B.
+            Przeglądaj firmy z branży {industryData.name} w mieście {cityData.name}. Dane są dostępne na stronie za darmo, a brakujące zakresy możesz zgłosić przez formularz.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link href={contactHref({ source: 'landing SEO miasto-branza', city: cityData.name, industry: industryData.name, topic: 'baza leadów CSV' })} className="rounded-full bg-indigo-500 px-6 py-3 text-sm font-black text-white">
-              Zapytaj o bazę
+            <Link href={contactHref({ source: 'landing SEO miasto-branza', city: cityData.name, industry: industryData.name, topic: 'brakujące dane' })} className="rounded-full bg-indigo-500 px-6 py-3 text-sm font-black text-white">
+              Zgłoś brakujące dane
             </Link>
             <Link href={`/leady/${cityData.slug}`} className="rounded-full border border-white/20 px-6 py-3 text-sm font-black text-white">
               Wszystkie branże: {cityData.name}
@@ -70,21 +68,21 @@ export default async function CityIndustryPage({ params }: Props) {
           </div>
           <div className="rounded-[2rem] bg-slate-950 p-8 text-white">
             <h2 className="text-2xl font-black">Co dostajesz?</h2>
-            <p className="mt-4 leading-8 text-white/70">Uporządkowany plik CSV/XLSX z danymi firm, który możesz zaimportować do CRM albo wykorzystać do ręcznego kontaktu.</p>
+            <p className="mt-4 leading-8 text-white/70">Dane firmowe dostępne na stronie: nazwy, lokalizacje, telefony, strony WWW i profile społecznościowe, jeśli są publicznie dostępne.</p>
           </div>
         </div>
       </section>
 
       <section className="bg-slate-50 px-5 py-20 md:px-8">
         <div className="mx-auto max-w-7xl rounded-[2rem] bg-white p-8 shadow-sm md:p-12">
-          <h2 className="text-4xl font-black tracking-[-.05em]">Zakres danych w paczce</h2>
+          <h2 className="text-4xl font-black tracking-[-.05em]">Zakres danych w bazie</h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-4">
-            {['nazwa firmy', 'adres i miasto', 'telefon', 'strona WWW', 'Facebook', 'Instagram', 'kategoria firmy', 'eksport CSV/XLSX'].map((item) => (
+            {['nazwa firmy', 'adres i miasto', 'telefon', 'strona WWW', 'Facebook', 'Instagram', 'kategoria firmy', 'publiczne dane'].map((item) => (
               <div key={item} className="rounded-3xl bg-slate-50 p-5 font-bold text-slate-800">✓ {item}</div>
             ))}
           </div>
           <p className="mt-8 max-w-4xl leading-8 text-slate-600">
-            Zakres zależy od dostępności danych dla konkretnej branży. Przed realizacją można ustalić minimalną liczbę rekordów, miasto, branżę oraz preferowany format pliku.
+            Zakres zależy od dostępności publicznych danych dla konkretnej branży. Jeśli brakuje miasta, branży albo większego zakresu, napisz przez formularz albo na kontakt@localleads.pl.
           </p>
         </div>
       </section>

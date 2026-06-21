@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props) {
 
   return pageMetadata({
     title: `Baza firm: ${landing.name} — darmowe dane online`,
-    description: `Przeglądaj firmy z miasta ${landing.name}. Darmowa baza online, branże, przykładowe firmy i eksport CSV na zamówienie.`,
+    description: `Przeglądaj firmy z miasta ${landing.name}. Darmowa baza online, branże i przykładowe firmy. Jeśli czegoś brakuje, zgłoś to przez formularz.`,
     path: `/miasto/${slug}`,
   });
 }
@@ -53,8 +53,8 @@ export default async function CityLandingPage({ params }: Props) {
             <Link href="/indeks-bazy" className={getButtonClass({ tone: 'secondary' })}>
               Indeks bazy
             </Link>
-            <Link href={contactHref({ source: `miasto ${landing.name}`, topic: 'eksport CSV' })} className={getButtonClass({ tone: 'secondary' })}>
-              Zapytaj o CSV
+            <Link href={contactHref({ source: `miasto ${landing.name}`, topic: 'brakująca branża lub zakres danych' })} className={getButtonClass({ tone: 'secondary' })}>
+              Zgłoś brakujące dane
             </Link>
           </div>
         </div>

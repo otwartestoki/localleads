@@ -9,7 +9,7 @@ import { pageMetadata } from '@/lib/seo';
 const audiences = [
   {
     title: 'Agencje SEO i marketingowe',
-    text: 'Szybko sprawdzają lokalne firmy, nisze i potencjalnych klientów do audytów, kampanii oraz ofert.',
+    text: 'Szybko sprawdzają lokalne firmy, nisze i potencjalne kontakty do audytów, kampanii oraz analiz rynku.',
   },
   {
     title: 'Twórcy stron WWW',
@@ -17,7 +17,7 @@ const audiences = [
   },
   {
     title: 'Sprzedaż B2B i outreach',
-    text: 'Handlowcy mogą filtrować bazę i przygotowywać listy firm do dalszej, własnej kwalifikacji.',
+    text: 'Handlowcy mogą filtrować bazę i przygotowywać własne listy firm do dalszej kwalifikacji.',
   },
 ] as const;
 
@@ -29,19 +29,19 @@ const fields = [
   'strona WWW',
   'Facebook, jeśli dostępny',
   'Instagram, jeśli dostępny',
-  'eksport CSV na życzenie',
+  'publicznie dostępne informacje firmowe',
 ] as const;
 
 const steps = [
-  'Korzystasz z darmowej bazy firm na stronie.',
-  'Filtrujesz dane po mieście, branży i frazie.',
-  'Jeśli baza Ci wystarcza, nie kupujesz niczego.',
-  'Jeśli chcesz plik albo brakujący zakres, zamawiasz eksport CSV.',
+  'Wchodzisz do darmowej bazy firm.',
+  'Filtrujesz dane po mieście, branży, nazwie firmy albo dowolnej frazie.',
+  'Korzystasz z dostępnych informacji od razu na stronie.',
+  'Jeśli czegoś brakuje, zgłaszasz branżę lub miasto przez formularz albo kontakt@localleads.pl.',
 ] as const;
 
 export const metadata = pageMetadata({
-  title: 'Oferta LocalLeads — darmowa baza firm i eksport CSV',
-  description: 'LocalLeads to darmowa baza firm do przeglądania. Płatny jest tylko eksport CSV albo przygotowanie danych z miasta lub branży, której jeszcze nie ma w bazie.',
+  title: 'Oferta LocalLeads - darmowa baza firm',
+  description: 'LocalLeads to darmowa baza firm do przeglądania. Jeśli brakuje branży lub miasta, napisz na kontakt@localleads.pl albo użyj formularza.',
   path: '/oferta',
 });
 
@@ -56,20 +56,20 @@ export default function OfferPage() {
             </p>
 
             <h1 className="mt-4 text-5xl font-black tracking-[-.06em] md:text-7xl">
-              Darmowa baza firm. Płatny tylko eksport CSV.
+              Darmowa baza firm dostępna na stronie.
             </h1>
 
             <p className="mt-5 max-w-3xl text-lg leading-8 text-[var(--brand-muted)]">
-              LocalLeads ma działać jako praktyczne narzędzie, a nie sklep ukrywający dane za paywallem. Przeglądasz bazę za darmo.
-              Kontaktujesz się dopiero wtedy, gdy potrzebujesz pliku CSV albo konkretnej branży, miasta lub liczby leadów, której jeszcze nie ma w bazie.
+              LocalLeads skupia się na udostępnianiu danych za darmo. Przeglądasz bazę online, filtrujesz firmy
+              i sprawdzasz dostępne kontakty w jednym miejscu.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/baza-firm" className={getButtonClass({ tone: 'primary' })}>
                 Przeglądaj bazę firm
               </Link>
-              <Link href={contactHref({ source: 'strona oferta', topic: 'eksport CSV' })} className={getButtonClass({ tone: 'secondary' })}>
-                Zapytaj o eksport CSV
+              <Link href={contactHref({ source: 'strona oferta', topic: 'brakująca branża lub miasto' })} className={getButtonClass({ tone: 'secondary' })}>
+                Zgłoś brakujące dane
               </Link>
             </div>
           </div>
@@ -92,11 +92,11 @@ export default function OfferPage() {
               Co jest dostępne
             </p>
             <h2 className="mt-4 text-4xl font-black tracking-[-.05em] md:text-6xl">
-              Dane na stronie + CSV na życzenie
+              Dane firmowe do darmowego researchu
             </h2>
             <p className="mt-5 text-lg leading-8 text-[var(--brand-muted)]">
-              Na stronie pokazuję dane przydatne do researchu i filtrowania. Eksport CSV jest opcją dla osób, które chcą pracować na pliku,
-              zaimportować dane do CRM albo zamówić zakres, którego jeszcze nie ma w bazie.
+              Na stronie pokazuję dane przydatne do sprawdzania lokalnego rynku, wyszukiwania firm i budowania własnych
+              list roboczych. Jeśli nie widzisz potrzebnej branży albo miasta, napisz na kontakt@localleads.pl lub przez formularz.
             </p>
           </div>
 
@@ -120,7 +120,7 @@ export default function OfferPage() {
               Jak to działa
             </p>
             <h2 className="mt-3 text-4xl font-black tracking-[-.05em] md:text-6xl">
-              Od darmowego podglądu do pliku CSV
+              Od wyszukiwania do zgłoszenia braków
             </h2>
           </div>
 
@@ -139,90 +139,22 @@ export default function OfferPage() {
 
       <section className="section brand-section-soft">
         <div className="container">
-          <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[.2em] text-[var(--brand-primary-soft)]">
-              Eksport CSV
-            </p>
-
-            <h2 className="mt-4 text-4xl font-black tracking-[-.05em] md:text-6xl">
-              Cennik eksportu danych
-            </h2>
-
-            <p className="mt-5 text-lg leading-8 text-[var(--brand-muted)]">
-              Przeglądanie bazy firm na stronie jest darmowe. Płatny jest wyłącznie eksport danych do pliku CSV
-              albo przygotowanie indywidualnego zestawienia według wybranej branży, miasta lub liczby rekordów.
-            </p>
-          </div>
-
-          <div className="mt-10 overflow-hidden rounded-3xl border border-[var(--brand-line)] bg-[var(--brand-surface)]/70">
-            <table className="w-full min-w-[560px]">
-              <thead>
-                <tr className="border-b border-[var(--brand-line)] bg-white/[.03]">
-                  <th className="px-6 py-4 text-left text-sm font-black uppercase tracking-[.16em] text-[var(--brand-muted)]">
-                    Liczba leadów
-                  </th>
-                  <th className="px-6 py-4 text-left text-sm font-black uppercase tracking-[.16em] text-[var(--brand-muted)]">
-                    Cena eksportu CSV
-                  </th>
-                  <th className="px-6 py-4 text-left text-sm font-black uppercase tracking-[.16em] text-[var(--brand-muted)]">
-                    Dla kogo
-                  </th>
-                </tr>
-              </thead>
-
-              <tbody>
-                <tr className="border-b border-[var(--brand-line)]">
-                  <td className="px-6 py-5 font-bold">Do 100 firm</td>
-                  <td className="px-6 py-5 text-xl font-black">49 zł</td>
-                  <td className="px-6 py-5 text-[var(--brand-muted)]">Mały test branży, miasta lub niszy.</td>
-                </tr>
-
-                <tr className="border-b border-[var(--brand-line)]">
-                  <td className="px-6 py-5 font-bold">Do 250 firm</td>
-                  <td className="px-6 py-5 text-xl font-black">99 zł</td>
-                  <td className="px-6 py-5 text-[var(--brand-muted)]">Większy research i przygotowanie kampanii.</td>
-                </tr>
-
-                <tr className="border-b border-[var(--brand-line)]">
-                  <td className="px-6 py-5 font-bold">Do 500 firm</td>
-                  <td className="px-6 py-5 text-xl font-black">149 zł</td>
-                  <td className="px-6 py-5 text-[var(--brand-muted)]">Pełniejsza lista firm dla wybranego segmentu.</td>
-                </tr>
-
-                <tr>
-                  <td className="px-6 py-5 font-bold">Powyżej 500 firm</td>
-                  <td className="px-6 py-5 text-xl font-black">Wycena indywidualna</td>
-                  <td className="px-6 py-5 text-[var(--brand-muted)]">Eksporty regionalne, branżowe lub niestandardowe.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div className="mt-8 grid gap-5 lg:grid-cols-[1.1fr_.9fr]">
-            <div className={`${radiusClass()} card p-7`}>
-              <h3 className="text-2xl font-black">Co obejmuje eksport?</h3>
-              <p className="mt-4 leading-8 text-[var(--brand-muted)]">
-                Eksport może obejmować dane widoczne w bazie oraz indywidualnie przygotowany zakres, jeśli potrzebujesz
-                konkretnej branży, miasta albo większej liczby rekordów niż aktualnie znajduje się na stronie.
+          <div className={`${radiusClass()} card flex flex-col gap-6 p-7 md:flex-row md:items-center md:justify-between md:p-9`}>
+            <div>
+              <h2 className="text-3xl font-black tracking-[-.04em]">
+                Brakuje branży albo miasta?
+              </h2>
+              <p className="mt-3 max-w-2xl leading-7 text-[var(--brand-muted)]">
+                Wyślij wiadomość na kontakt@localleads.pl albo przez formularz. Podaj branżę, miasto lub region oraz to,
+                jakich danych szukasz.
               </p>
             </div>
-
-            <div className={`${radiusClass()} card p-7`}>
-              <h3 className="text-2xl font-black">Potrzebujesz pliku?</h3>
-              <p className="mt-4 leading-8 text-[var(--brand-muted)]">
-                Opisz branżę, miasto i przybliżoną liczbę leadów. Przygotuję odpowiedni eksport CSV.
-              </p>
-              <Link
-                href={contactHref({ source: 'strona oferta', topic: 'wycena eksportu CSV' })}
-                className={`${getButtonClass({ tone: 'primary' })} mt-6`}
-              >
-                Zapytaj o eksport CSV
-              </Link>
-            </div>
+            <Link href={contactHref({ source: 'strona oferta', topic: 'brakująca branża lub miasto' })} className={getButtonClass({ tone: 'primary' })}>
+              Skontaktuj się
+            </Link>
           </div>
         </div>
       </section>
-
     </PageShell>
   );
 }

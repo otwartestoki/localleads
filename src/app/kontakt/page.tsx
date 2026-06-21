@@ -7,15 +7,15 @@ import { pageMetadata } from '@/lib/seo';
 import { notFound } from 'next/navigation';
 
 export const metadata = pageMetadata({
-  title: 'Kontakt — eksport CSV i brakujące dane',
-  description: 'Skontaktuj się, jeśli potrzebujesz eksportu CSV z LocalLeads albo chcesz zgłosić brakującą branżę, miasto lub błąd w bazie firm.',
+  title: 'Kontakt — brakujące dane',
+  description: 'Skontaktuj się, jeśli chcesz zgłosić brakującą branżę, miasto lub błąd w bazie firm.',
   path: '/kontakt',
 });
 
 type ContactSearchParams = {
   zrodlo?: string;
   temat?: string;
-  pakiet?: string;
+  zakres?: string;
   miasto?: string;
   branza?: string;
 };
@@ -49,7 +49,7 @@ export default async function ContactPage({ searchParams }: Props) {
           <ContactForm
             source={params.zrodlo}
             topic={params.temat}
-            packageName={params.pakiet}
+            packageName={params.zakres}
             city={params.miasto}
             industry={params.branza}
           />

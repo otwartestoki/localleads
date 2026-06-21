@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props) {
 
   return pageMetadata({
     title: `Baza firm: ${landing.name} — darmowe dane online`,
-    description: `Przeglądaj firmy z branży ${landing.name}. Darmowa baza online, przykładowe firmy, lokalizacje i możliwość zamówienia eksportu CSV.`,
+    description: `Przeglądaj firmy z branży ${landing.name}. Darmowa baza online, przykładowe firmy i lokalizacje. Jeśli czegoś brakuje, zgłoś to przez formularz.`,
     path: `/branza/${slug}`,
   });
 }
@@ -44,7 +44,7 @@ export default async function IndustryLandingPage({ params }: Props) {
             Baza firm: {landing.name}
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-[var(--brand-muted)]">
-            W LocalLeads znajdziesz firmy z tej branży dostępne do darmowego przeglądania online. Jeżeli chcesz pracować na danych w arkuszu, możesz zamówić eksport CSV.
+            W LocalLeads znajdziesz firmy z tej branży dostępne do darmowego przeglądania online. Jeżeli brakuje lokalizacji lub zakresu danych, zgłoś to przez formularz.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <Link href={`/baza-firm?category=${encodeURIComponent(landing.name)}`} className={getButtonClass({ tone: 'primary' })}>
@@ -53,8 +53,8 @@ export default async function IndustryLandingPage({ params }: Props) {
             <Link href="/indeks-bazy" className={getButtonClass({ tone: 'secondary' })}>
               Indeks bazy
             </Link>
-            <Link href={contactHref({ source: `branza ${landing.name}`, topic: 'eksport CSV' })} className={getButtonClass({ tone: 'secondary' })}>
-              Zapytaj o CSV
+            <Link href={contactHref({ source: `branza ${landing.name}`, topic: 'brakująca lokalizacja lub zakres danych' })} className={getButtonClass({ tone: 'secondary' })}>
+              Zgłoś brakujące dane
             </Link>
           </div>
         </div>

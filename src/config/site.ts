@@ -77,7 +77,7 @@ export const site = {
     "whatsappUrl": "",
     "messengerUrl": ""
   },
-  "description": "LocalLeads to darmowa baza firm do przeglądania i filtrowania. Pomaga agencjom, handlowcom i twórcom stron szybciej znaleźć lokalne firmy, a indywidualne paczki można zamówić tylko wtedy, gdy potrzebujesz konkretnej branży lub miasta, którego nie ma jeszcze w bazie.",
+  "description": "LocalLeads to darmowa baza firm do przeglądania i filtrowania. Pomaga agencjom, handlowcom i twórcom stron szybciej znaleźć lokalne firmy. Jeśli brakuje konkretnej branży albo miasta, napisz na kontakt@localleads.pl lub przez formularz.",
   "ctaLabel": "Przeglądaj bazę firm",
   "theme": {
     "primary": "#38bdf8",
@@ -243,15 +243,15 @@ export const site = {
       "enabled": true,
       "href": "/oferta",
       "label": "Oferta",
-      "title": "Darmowa baza firm i indywidualne paczki na zamówienie",
-      "subtitle": "Najpierw korzystasz z otwartej bazy. Płacisz tylko wtedy, gdy potrzebujesz konkretnej branży, miasta lub większej paczki danych."
+      "title": "Darmowa baza firm",
+      "subtitle": "Korzystasz z otwartej bazy na stronie. Jeśli brakuje branży lub miasta, zgłaszasz to przez formularz albo kontakt@localleads.pl."
     },
     "database": {
       "enabled": true,
       "href": "/baza-firm",
       "label": "Baza firm",
       "title": "Darmowa baza firm",
-      "subtitle": "Przeglądaj i filtruj firmy z tabeli Supabase bez kupowania gotowych paczek."
+      "subtitle": "Przeglądaj i filtruj firmy z bazy online."
     },
     "index": {
       "enabled": true,
@@ -262,60 +262,19 @@ export const site = {
     },
     "pricing": {
       "enabled": false,
-      "href": "/cennik",
-      "label": "Cennik",
-      "title": "Cennik paczek na zamówienie",
-      "subtitle": "Baza firm na stronie jest darmowa. Płatne są tylko indywidualne paczki, gdy potrzebujesz danych, których jeszcze nie ma w bazie.",
-      "intro": "Wybierasz branżę i miasto lub region. Cena zależy od liczby realnie dostępnych leadów oraz zakresu ręcznej weryfikacji.",
-      "packages": [
-        {
-          "name": "Start",
-          "price": "99 zł",
-          "features": [
-            "do 100 firm",
-            "branża + lokalizacja",
-            "dane kontaktowe + social media jeśli dostępne",
-            "plik CSV"
-          ]
-        },
-        {
-          "name": "Biznes",
-          "price": "199 zł",
-          "features": [
-            "do 250 firm",
-            "najbardziej uniwersalny pakiet",
-            "dane kontaktowe + social media jeśli dostępne",
-            "plik CSV"
-          ]
-        },
-        {
-          "name": "Pro",
-          "price": "349 zł",
-          "features": [
-            "do 500 firm",
-            "większa paczka na region lub kilka miast",
-            "dane kontaktowe + social media jeśli dostępne",
-            "plik CSV"
-          ]
-        },
-        {
-          "name": "Abonament",
-          "price": "od 79 zł / mies.",
-          "features": [
-            "nowe firmy co miesiąc",
-            "niższa cena za lead",
-            "branża i lokalizacja według ustaleń",
-            "plik CSV"
-          ]
-        }
-      ]
+      "href": "/kontakt",
+      "label": "Kontakt",
+      "title": "Zgłoś brakujące dane",
+      "subtitle": "Jeśli w darmowej bazie brakuje branży, miasta lub zakresu danych, napisz do LocalLeads.",
+      "intro": "Podaj branżę, miasto lub region oraz krótki opis tego, czego szukasz.",
+      "packages": []
     },
     "gallery": {
       "enabled": false,
       "href": "/galeria",
       "label": "Przykłady",
       "title": "Przykłady danych i zasięgu",
-      "subtitle": "Zobacz, jak wygląda produkt: arkusz CSV, paczka premium i pokrycie miast w Polsce."
+      "subtitle": "Zobacz przykładowe dane i pokrycie miast w Polsce."
     },
     "blog": {
       "enabled": true,
@@ -329,14 +288,14 @@ export const site = {
       "href": "/faq",
       "label": "FAQ",
       "title": "Najczęstsze pytania",
-      "subtitle": "Najważniejsze informacje o darmowej bazie, eksporcie CSV i brakujących danych."
+      "subtitle": "Najważniejsze informacje o darmowej bazie i zgłaszaniu brakujących danych."
     },
     "contact": {
       "enabled": true,
       "href": "/kontakt",
       "label": "Kontakt",
-      "title": "Eksport CSV i brakujące dane",
-      "subtitle": "Napisz, jeśli potrzebujesz eksportu CSV, konkretnej branży, miasta albo chcesz zgłosić błąd w bazie."
+      "title": "Brakujące dane i kontakt",
+      "subtitle": "Napisz, jeśli brakuje konkretnej branży, miasta albo chcesz zgłosić błąd w bazie."
     }
   },
   "navigation": {
@@ -365,8 +324,8 @@ export const site = {
         "enabled": true
       },
       {
-        "label": "Cennik",
-        "href": "/cennik",
+        "label": "Kontakt",
+        "href": "/kontakt",
         "enabled": false
       },
       {
@@ -394,13 +353,13 @@ export const site = {
   "hero": {
     "eyebrow": "Darmowa baza firm do przeglądania",
     "title": "Otwarta baza firm dla sprzedaży, SEO i lokalnego prospectingu",
-    "description": "LocalLeads udostępnia bazę firm za darmo, żebyś mógł szybko sprawdzić lokalne biznesy, branże i dane kontaktowe. To narzędzie dla agencji SEO, twórców stron, handlowców B2B i osób budujących kampanie lokalne. Płatne paczki są tylko dodatkiem — gdy potrzebujesz konkretnego miasta lub branży, której jeszcze nie ma w bazie.",
+    "description": "LocalLeads udostępnia bazę firm za darmo, żebyś mógł szybko sprawdzić lokalne biznesy, branże i dane kontaktowe. To narzędzie dla agencji SEO, twórców stron, handlowców B2B i osób budujących kampanie lokalne. Jeśli czegoś brakuje, napisz na kontakt@localleads.pl lub przez formularz.",
     "primaryCta": "Przeglądaj bazę firm",
     "primaryHref": "/baza-firm",
     "secondaryCta": "Skontaktuj się",
     "secondaryHref": "/kontakt",
     "floatingCardTitle": "Darmowy dostęp",
-    "floatingCardText": "Podstawą LocalLeads jest otwarta baza do przeglądania. Indywidualne paczki są opcją dla osób, które potrzebują konkretnego zakresu danych.",
+    "floatingCardText": "Podstawą LocalLeads jest otwarta baza do przeglądania. Brakujące branże i miasta można zgłosić przez formularz.",
     "stats": [
       {
         "value": "CSV",
@@ -437,23 +396,23 @@ export const site = {
     "eyebrow": "Oferta LocalLeads",
     "previewTitle": "Dla kogo jest LocalLeads?",
     "fullTitle": "Darmowa baza firm dla osób, które pracują na danych",
-    "lead": "LocalLeads jest dla agencji SEO, freelancerów od stron WWW, handlowców B2B i firm, które chcą szybko sprawdzić lokalny rynek. Płatne paczki są dodatkiem, gdy w bazie brakuje konkretnego miasta lub branży.",
+    "lead": "LocalLeads jest dla agencji SEO, freelancerów od stron WWW, handlowców B2B i firm, które chcą szybko sprawdzić lokalny rynek. Dane na stronie są dostępne za darmo, a brakujące miasta lub branże możesz zgłosić kontaktowo.",
     "previewCta": "Zobacz bazę firm",
     "cardCta": "Sprawdź szczegóły"
   },
   "services": [
     {
-      "slug": "paczka-branza-lokalizacja",
+      "slug": "darmowa-baza-firm",
       "title": "Darmowe przeglądanie bazy",
-      "short": "Korzystasz z bazy firm bez kupowania gotowych paczek. Filtrujesz dane po mieście, branży i frazie.",
+      "short": "Korzystasz z bazy firm na stronie. Filtrujesz dane po mieście, branży i frazie.",
       "shortText": "Podstawowa wartość LocalLeads jest dostępna za darmo.",
       "description": "Otwarta baza firm dostępna na stronie.",
-      "details": "Wybierasz branżę i lokalizację, a otrzymujesz uporządkowany plik CSV z firmami pasującymi do kryterium. Każdy rekord zawiera dane kontaktowe oraz linki do social media, jeśli są publicznie dostępne.",
-      "price": "od 99 zł",
+      "details": "Wybierasz branżę i lokalizację w bazie online, a następnie przeglądasz publicznie dostępne informacje o firmach.",
+      "price": "darmowe",
       "image": "/media/services-1.webp",
-      "category": "Paczka",
-      "duration": "1–3 dni",
-      "heroLead": "Firmy z konkretnej branży i lokalizacji, gotowe do pracy sprzedażowej.",
+      "category": "Darmowa baza",
+      "duration": "od razu",
+      "heroLead": "Firmy z konkretnej branży i lokalizacji dostępne do przeglądania online.",
       "sections": [],
       "bullets": [
         "branża + miasto lub region",
@@ -463,62 +422,62 @@ export const site = {
       "faq": []
     },
     {
-      "slug": "paczka-region",
+      "slug": "research-lokalny",
       "title": "Dla SEO, stron WWW i sprzedaży",
       "short": "Baza pomaga znaleźć firmy do audytów SEO, ofert stron internetowych, prospectingu B2B i analizy lokalnego rynku.",
       "shortText": "Dane jako punkt startowy do realnej pracy.",
       "description": "Dla osób, które pracują na lokalnych danych firmowych.",
-      "details": "Wariant dla firm, które chcą sprawdzić większy rynek, przygotować sprzedaż terenową albo porównać kilka lokalizacji. Zakres ustalany jest indywidualnie w zależności od branży.",
-      "price": "od 199 zł",
+      "details": "Baza pomaga sprawdzić większy rynek, przygotować research lokalny albo porównać kilka lokalizacji.",
+      "price": "darmowe",
       "image": "/media/services-2.webp",
       "category": "Region",
-      "duration": "2–5 dni",
-      "heroLead": "Kilka miast, region lub województwo w jednym uporządkowanym CSV.",
+      "duration": "online",
+      "heroLead": "Kilka miast, region lub województwo do przeglądania online.",
       "sections": [],
       "bullets": [
         "kilka miast lub województwo",
-        "CSV do filtrowania",
+        "dane do filtrowania na stronie",
         "dane kontaktowe i social media"
       ],
       "faq": []
     },
     {
-      "slug": "abonament-leadow",
-      "title": "Paczki na zamówienie",
-      "short": "Gdy w bazie brakuje konkretnej branży, miasta lub regionu, możesz zamówić indywidualne zebranie firm.",
-      "shortText": "Płatne tylko wtedy, gdy potrzebujesz czegoś konkretnego.",
-      "description": "Indywidualne paczki danych według potrzeb.",
-      "details": "Abonament sprawdza się, jeśli regularnie prowadzisz sprzedaż, kampanie SEO, sprzedaż stron WWW albo outreach B2B. Otrzymujesz nowe firmy z ustalonej branży i lokalizacji w niższej cenie za rekord.",
-      "price": "od 79 zł / mies.",
+      "slug": "zglos-brakujace-dane",
+      "title": "Brakujące branże i miasta",
+      "short": "Gdy w bazie brakuje konkretnej branży, miasta lub regionu, możesz zgłosić taki zakres do uzupełnienia.",
+      "shortText": "Napisz, czego szukasz.",
+      "description": "Zgłoszenia brakujących danych przez formularz.",
+      "details": "Jeśli nie widzisz potrzebnego zakresu, wyślij wiadomość na kontakt@localleads.pl albo przez formularz. Podaj branżę, miasto lub region oraz krótki opis danych, których szukasz.",
+      "price": "kontakt",
       "image": "/media/gallery-1.webp",
-      "category": "Abonament",
-      "duration": "co miesiąc",
-      "heroLead": "Cykliczne paczki nowych firm do bieżącej pracy sprzedażowej.",
+      "category": "Kontakt",
+      "duration": "formularz",
+      "heroLead": "Zgłoś branżę lub miasto, którego nie ma jeszcze w bazie.",
       "sections": [],
       "bullets": [
-        "nowe firmy co miesiąc",
-        "niższa cena za lead",
-        "branża i lokalizacja według ustaleń"
+        "brakujące branże",
+        "brakujące miasta",
+        "kontakt@localleads.pl"
       ],
       "faq": []
     }
   ],
   "about": {
     "title": "Po co powstało LocalLeads",
-    "text": "LocalLeads ma być praktycznym, darmowym miejscem do sprawdzania lokalnych firm. Zamiast ukrywać wszystko za płatnym plikiem, baza ma budować użyteczność i zaufanie. Płatne pozostają tylko indywidualne zlecenia na brakujące branże lub miasta.",
+    "text": "LocalLeads ma być praktycznym, darmowym miejscem do sprawdzania lokalnych firm. Baza ma budować użyteczność i zaufanie przez łatwy dostęp do danych.",
     "pageTitle": "O mnie",
     "pageLead": "Za LocalLeads stoi praktyczne podejście: baza ma być użyteczna, czytelna i gotowa do pracy, a nie tylko długa.",
     "paragraphs": [
       "Pomysł na LocalLeads powstał przy pracy nad lokalną sprzedażą usług internetowych. Szybko okazało się, że największym problemem nie jest sama oferta, ale uporządkowane znalezienie firm, sprawdzenie kontaktów i przygotowanie danych w formacie, który da się wykorzystać w CRM.",
-      "Dlatego każda paczka jest budowana wokół realnego zastosowania: agencja SEO może szukać firm bez widoczności w Google, twórca stron może znaleźć biznesy z przestarzałą witryną, handlowiec B2B może zebrać kontakty z wybranego regionu, a firma usługowa może znaleźć partnerów lokalnych.",
-      "Nie obiecuję magicznej sprzedaży. Dostarczam uporządkowany punkt startowy: rekordy w CSV, sensowny podział, ręczną kontrolę i możliwość przygotowania paczek pod konkretną branżę lub region Polski."
+      "Dlatego baza jest budowana wokół realnego zastosowania: agencja SEO może szukać firm bez widoczności w Google, twórca stron może znaleźć biznesy z przestarzałą witryną, handlowiec B2B może zebrać kontakty z wybranego regionu, a firma usługowa może znaleźć partnerów lokalnych.",
+      "Nie obiecuję magicznej sprzedaży. Udostępniam uporządkowany punkt startowy: dane firmowe, sensowny podział i możliwość zgłoszenia brakującej branży lub regionu Polski."
     ]
   },
   "process": [
     "Przeglądasz darmową bazę firm na stronie",
     "Filtrujesz rekordy po branży, mieście i danych kontaktowych",
-    "Gdy czegoś brakuje, zamawiasz konkretną branżę lub miasto",
-    "Płatny jest eksport CSV — cena zależy od liczby rekordów i zakresu danych"
+    "Gdy czegoś brakuje, zgłaszasz konkretną branżę lub miasto",
+    "Jeśli czegoś brakuje, wysyłasz zgłoszenie przez formularz"
   ],
   "partnersSection": {
     "showHeader": false,
@@ -547,68 +506,27 @@ export const site = {
     "embedUrl": "",
     "height": 420
   },
-  "pricing": [
-    {
-      "name": "Start",
-      "price": "99 zł",
-      "features": [
-        "do 100 rekordów CSV",
-        "firma, telefon, WWW, miasto, branża",
-        "jedno miasto lub jedna branża",
-        "dla testu rynku lub małej kampanii"
-      ]
-    },
-    {
-      "name": "Biznes Branża/Miasto",
-      "price": "199 zł",
-      "features": [
-        "do 200 rekordów CSV",
-        "dane kontaktowe + Facebook/Instagram",
-        "ręczna weryfikacja rekordów",
-        "najlepszy wybór dla SEO i stron WWW"
-      ]
-    },
-    {
-      "name": "Region Pro",
-      "price": "349 zł",
-      "features": [
-        "do 500 rekordów CSV",
-        "kilka miast lub cały region",
-        "segmentacja po branżach",
-        "usuwanie duplikatów"
-      ]
-    },
-    {
-      "name": "Abonament Growth",
-      "price": "od 79 zł / mies.",
-      "features": [
-        "cykliczne paczki leadów",
-        "stała branża lub rotacyjne nisze",
-        "priorytetowa realizacja",
-        "rozliczenie miesięczne"
-      ]
-    }
-  ],
+  "pricing": [],
   "faq": [
     [
       "Czy baza firm jest darmowa?",
-      "Tak. Podstawowe przeglądanie bazy firm na stronie jest darmowe. Możesz sprawdzać rekordy, filtrować dane i szukać firm bez kupowania gotowych paczek."
+      "Tak. Podstawowe przeglądanie bazy firm na stronie jest darmowe. Możesz sprawdzać rekordy, filtrować dane i szukać firm online."
     ],
     [
-      "Za co płaci się w LocalLeads?",
-      "Płatny jest eksport danych do CSV oraz przygotowanie brakującego zakresu, którego nie ma jeszcze w bazie. Nie płacisz za samo przeglądanie bazy na stronie."
+      "Co jeśli brakuje branży albo miasta?",
+      "Napisz przez formularz albo na kontakt@localleads.pl. Podaj branżę, miasto lub region oraz krótki opis danych, których szukasz."
     ],
     [
-      "Czy mogę pobrać całą bazę samodzielnie?",
-      "Nie. Strona służy do przeglądania i filtrowania danych. Jeśli potrzebujesz pliku CSV do pracy w arkuszu, CRM albo kampanii, napisz przez formularz i opisz potrzebny zakres."
+      "Czy mogę przeglądać bazę samodzielnie?",
+      "Tak. Strona służy do przeglądania i filtrowania danych dostępnych online."
     ],
     [
       "Co jeśli w bazie nie ma mojej branży albo miasta?",
-      "Wtedy napisz, czego szukasz: branża, miasto, region i orientacyjna liczba rekordów. Sprawdzę dostępność danych i zaproponuję przygotowanie lub eksport odpowiedniego zakresu."
+      "Wtedy napisz, czego szukasz: branża, miasto, region i orientacyjna liczba rekordów. Zgłoszenie pomoże rozwijać bazę w potrzebnym kierunku."
     ],
     [
-      "Od czego zależy cena eksportu CSV?",
-      "Cena zależy głównie od liczby rekordów, zakresu danych, branży, lokalizacji i tego, czy dane wymagają dodatkowego czyszczenia lub ręcznej weryfikacji."
+      "Jak zgłosić brakujące dane?",
+      "Najprościej przez formularz kontaktowy lub e-mail kontakt@localleads.pl. W wiadomości podaj branżę, miasto albo region."
     ],
     [
       "Jak działa pole Szukaj w bazie firm?",
@@ -634,7 +552,7 @@ export const site = {
   ],
   "gallerySection": {
     "title": "Produkt w praktyce",
-    "description": "Strona pokazuje trzy elementy oferty: arkusz CSV, wersję premium z social mediami i zasięg baz lokalnych w Polsce."
+    "description": "Strona pokazuje przykładowe dane, social media i zasięg baz lokalnych w Polsce."
   },
   "galleryItems": [
     {
@@ -644,13 +562,13 @@ export const site = {
       "alt": "Mapa Polski pokazująca zasięg baz leadów LocalLeads"
     },
     {
-      "title": "CSV Standard",
+      "title": "Tabela danych",
       "category": "Dane",
-      "description": "Podstawowa paczka firm gotowa do filtrowania, importu i pracy w CRM.",
+      "description": "Przykładowe dane firm gotowe do filtrowania na stronie.",
       "alt": "Przykład arkusza CSV z leadami firmowymi"
     },
     {
-      "title": "CSV z social mediami",
+      "title": "Dane z social mediami",
       "category": "Social media",
       "description": "Rozszerzone rekordy z linkami do social mediów i ręczną weryfikacją.",
       "alt": "Baza leadów z danymi kontaktowymi i social media"
@@ -682,7 +600,7 @@ export const site = {
   "slug": "localleads",
   "seo": {
     "title": "LocalLeads — darmowa baza firm z Polski",
-    "description": "Darmowa baza firm do przeglądania i filtrowania. Dane dla agencji SEO, handlowców B2B, twórców stron i lokalnego prospectingu. Indywidualne paczki firm na zamówienie."
+    "description": "Darmowa baza firm do przeglądania i filtrowania. Dane dla agencji SEO, handlowców B2B, twórców stron i lokalnego prospectingu. Brakujące branże lub miasta możesz zgłosić przez formularz."
   },
   "colors": {
     "primary": "#38bdf8",

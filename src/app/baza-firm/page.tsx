@@ -11,7 +11,7 @@ export const dynamic = 'force-dynamic';
 
 export const metadata = pageMetadata({
   title: 'Darmowa baza firm — LocalLeads',
-  description: 'Przeglądaj darmową bazę firm LocalLeads. Szukaj po firmie, branży, adresie, stronie WWW i danych kontaktowych. Płatny jest tylko eksport CSV.',
+  description: 'Przeglądaj darmową bazę firm LocalLeads. Szukaj po firmie, branży, adresie, stronie WWW i danych kontaktowych. Jeśli brakuje branży lub miasta, napisz na kontakt@localleads.pl.',
   path: '/baza-firm',
 });
 
@@ -26,7 +26,7 @@ export default function BusinessDatabasePage() {
                 Darmowa baza firm
               </p>
               <h1 className="mt-4 text-5xl font-black tracking-[-.06em] md:text-7xl">
-                Przeglądaj bazę firm bez płacenia za paczki
+                Przeglądaj bazę firm za darmo
               </h1>
               <p className="mt-5 max-w-3xl text-lg leading-8 text-[var(--brand-muted)]">
                 LocalLeads ma być użytecznym, otwartym katalogiem dla osób, które szukają firm do prospectingu,
@@ -40,8 +40,8 @@ export default function BusinessDatabasePage() {
                 <Link href="/indeks-bazy" className={getButtonClass({ tone: 'secondary' })}>
                   Indeks bazy
                 </Link>
-                <Link href={contactHref({ source: 'baza firm', topic: 'eksport CSV' })} className={getButtonClass({ tone: 'secondary' })}>
-                  Zapytaj o eksport CSV
+                <Link href={contactHref({ source: 'baza firm', topic: 'brakująca branża lub miasto' })} className={getButtonClass({ tone: 'secondary' })}>
+                  Zgłoś brakujące dane
                 </Link>
               </div>
             </div>
@@ -53,7 +53,7 @@ export default function BusinessDatabasePage() {
               <ul className="mt-5 grid gap-4 text-sm font-bold leading-6 text-white">
                 <li>1. Wpisz frazę, adres, firmę albo branżę.</li>
                 <li>2. Otwórz stronę firmy lub social media.</li>
-                <li>3. Gdy chcesz plik CSV, wyślij zapytanie o eksport.</li>
+                <li>3. Jeśli brakuje branży lub miasta, wyślij zgłoszenie.</li>
               </ul>
             </div>
           </div>
@@ -70,7 +70,7 @@ export default function BusinessDatabasePage() {
               Firmy dostępne w bazie
             </h2>
             <p className="mt-5 text-lg leading-8 text-[var(--brand-muted)]">
-              Poniżej wyświetlane są rekordy dostępne w bazie. Przeglądanie i filtrowanie danych na stronie jest darmowe. Płatny jest tylko eksport CSV.
+              Poniżej wyświetlane są rekordy dostępne w bazie. Przeglądanie i filtrowanie danych na stronie jest darmowe. Jeśli brakuje konkretnej branży lub miasta, napisz na kontakt@localleads.pl albo przez formularz.
             </p>
           </div>
 

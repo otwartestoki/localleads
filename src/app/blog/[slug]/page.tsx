@@ -105,14 +105,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
             <div className={`${radiusClass()} card mt-8 p-7 md:flex md:items-center md:justify-between md:gap-8`}>
               <div>
-                <h2 className="text-2xl font-black">Chcesz podobną bazę firm?</h2>
-                <p className="mt-2 leading-7">Zamów próbkę CSV albo opisz branżę i miasto, dla których mam przygotować leady.</p>
+                <h2 className="text-2xl font-black">Brakuje branży albo miasta?</h2>
+                <p className="mt-2 leading-7">Opisz, jakiego zakresu danych szukasz. Możesz napisać przez formularz albo na kontakt@localleads.pl.</p>
               </div>
               <Link
-                href="/kontakt?topic=blog&message=Interesuje mnie baza leadów po przeczytaniu wpisu na blogu. Proszę o informację, jakie pakiety CSV są dostępne."
+                href="/kontakt?temat=brakujace-dane&message=Po przeczytaniu wpisu na blogu chcę zgłosić brakującą branżę, miasto lub zakres danych."
                 className={getButtonClass({ tone: 'primary', className: 'mt-5 shrink-0 md:mt-0' })}
               >
-                Zamów próbkę CSV
+                Zgłoś brakujące dane
               </Link>
             </div>
           </div>

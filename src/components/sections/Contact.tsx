@@ -24,9 +24,9 @@ export default function Contact() {
       <div className="container grid gap-10 md:grid-cols-2">
         <div>
           <p className="text-sm font-black uppercase tracking-[.22em] text-[var(--brand-primary-soft)]">Kontakt</p>
-          <h2 className="mt-3 text-4xl font-black tracking-[-.04em] md:text-5xl">Eksport CSV lub brakujące dane</h2>
+          <h2 className="mt-3 text-4xl font-black tracking-[-.04em] md:text-5xl">Brakujące dane lub błąd w bazie</h2>
           <p className="mt-4 text-lg leading-8 text-[var(--brand-muted)]">
-            Korzystanie z bazy na stronie jest darmowe. Napisz, jeśli potrzebujesz eksportu CSV, brakuje Ci konkretnej branży lub miasta albo chcesz zgłosić błąd w danych.
+            Korzystanie z bazy na stronie jest darmowe. Napisz, jeśli brakuje Ci konkretnej branży lub miasta albo chcesz zgłosić błąd w danych.
           </p>
 
           <div className="mt-7 rounded-3xl border border-[var(--brand-line)] bg-[var(--brand-surface)]/70 p-6 leading-8 text-[var(--brand-muted)]">
@@ -58,7 +58,7 @@ export default function Contact() {
           ) : null}
         </div>
 
-        <ContactForm source="sekcja kontakt na stronie głównej" topic="eksport CSV lub brakujące dane" compact />
+        <ContactForm source="sekcja kontakt na stronie głównej" topic="brakująca branża lub miasto" compact />
       </div>
     </section>
   );

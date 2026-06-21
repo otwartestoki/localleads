@@ -33,10 +33,10 @@ export default function About() {
               Przeglądaj bazę za darmo
             </Link>
             <Link
-              href={contactHref({ source: 'sekcja O mnie', topic: 'eksport danych do CSV' })}
+              href={contactHref({ source: 'sekcja O mnie', topic: 'brakująca branża lub miasto' })}
               className={getButtonClass({ tone: 'secondary' })}
             >
-              Zapytaj o eksport CSV
+              Zgłoś brakujące dane
             </Link>
           </div>
         </div>

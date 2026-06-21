@@ -73,14 +73,14 @@ export default function ContactForm({ source, topic, packageName, city, industry
       <input
         className={getInputClass()}
         name="topic"
-        placeholder="Eksport CSV / brakująca branża / brakujące miasto"
+        placeholder="Brakująca branża / brakujące miasto / błąd w bazie"
         defaultValue={subject || topic || ''}
         required
       />
       <textarea
         className={getInputClass({ className: compact ? 'min-h-28' : 'min-h-40' })}
         name="message"
-        placeholder="Opisz, czego potrzebujesz: eksport CSV, brakująca branża, brakujące miasto lub zgłoszenie błędu w bazie."
+        placeholder="Opisz, czego brakuje: branża, miasto, region albo zgłoszenie błędu w bazie."
         defaultValue={message}
         required
       />

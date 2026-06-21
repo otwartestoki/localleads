@@ -118,7 +118,7 @@ function getHeroCtas() {
   const primaryCta = getCta(
     heroContent.primaryCta,
     'Przeglądaj bazę firm',
-    heroContent.primaryHref && heroContent.primaryHref !== '/kontakt' ? heroContent.primaryHref : contactHref({ source: 'hero', topic: 'eksport CSV lub brakujące dane' }),
+    heroContent.primaryHref && heroContent.primaryHref !== '/kontakt' ? heroContent.primaryHref : contactHref({ source: 'hero', topic: 'brakująca branża lub miasto' }),
   );
 
   const secondaryCta = getCta(

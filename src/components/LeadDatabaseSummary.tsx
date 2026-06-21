@@ -24,14 +24,14 @@ export default function LeadDatabaseSummary({ stats }: Props) {
             Co jest aktualnie w LocalLeads?
           </h2>
           <p className="mt-5 leading-8 text-[var(--brand-muted)]">
-            Baza jest dostępna do darmowego przeglądania online. Płatny jest tylko eksport CSV, gdy chcesz pracować na danych w arkuszu, CRM albo własnym systemie.
+            Baza jest dostępna do darmowego przeglądania online. Jeśli nie widzisz potrzebnej branży, miasta albo zakresu, wyślij zgłoszenie przez formularz.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link href="/landingi" className={getButtonClass({ tone: 'secondary' })}>
               Zobacz landingi SEO
             </Link>
-            <Link href={contactHref({ source: 'podsumowanie bazy', topic: 'eksport CSV' })} className={getButtonClass({ tone: 'primary' })}>
-              Zapytaj o CSV
+            <Link href={contactHref({ source: 'podsumowanie bazy', topic: 'brakująca branża lub miasto' })} className={getButtonClass({ tone: 'primary' })}>
+              Zgłoś brakujące dane
             </Link>
           </div>
         </div>

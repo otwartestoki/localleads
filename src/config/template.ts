@@ -91,11 +91,11 @@ export const standalonePages = [
   },
   {
     "type": "pricing",
-    "enabled": true,
-    "href": "/cennik",
-    "path": "/cennik",
-    "label": "Cennik",
-    "navLabel": "Cennik"
+    "enabled": false,
+    "href": "/kontakt",
+    "path": "/kontakt",
+    "label": "Kontakt",
+    "navLabel": "Kontakt"
   },
   {
     "type": "gallery",
@@ -137,7 +137,7 @@ export const navigation = {
   "logoHref": "/",
   "showCtaInHeader": true,
   "cta": {
-    "label": "Zamów CSV",
+    "label": "Zgłoś brakujące dane",
     "href": "/kontakt"
   },
   "items": [
@@ -152,8 +152,8 @@ export const navigation = {
       "enabled": true
     },
     {
-      "label": "Cennik",
-      "href": "/cennik",
+      "label": "Kontakt",
+      "href": "/kontakt",
       "enabled": true
     },
     {

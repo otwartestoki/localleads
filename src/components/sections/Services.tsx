@@ -20,11 +20,11 @@ const useCases = [
   },
   {
     title: 'Sprawdzasz, czy baza Ci wystarcza',
-    description: 'Jeśli dane są w bazie, nie musisz nic kupować. Możesz wykorzystać widok na stronie jako punkt startowy do researchu.',
+    description: 'Jeśli dane są w bazie, korzystasz z nich od razu na stronie. Możesz wykorzystać widok jako punkt startowy do researchu.',
   },
   {
-    title: 'Zamawiasz tylko eksport CSV',
-    description: 'Płatny jest wyłącznie eksport do pliku CSV albo przygotowanie zakresu, którego jeszcze nie ma w bazie.',
+    title: 'Zgłaszasz brakujący zakres',
+    description: 'Jeśli brakuje miasta, branży albo konkretnego zakresu, napisz na kontakt@localleads.pl lub przez formularz.',
   },
 ] as const;
 
@@ -41,9 +41,8 @@ export default function Services() {
               Darmowa baza firm dla osób, które pracują na danych
             </h2>
             <p className="mt-5 text-lg leading-8 text-[var(--brand-muted)]">
-              LocalLeads nie jest już sklepem z gotowymi paczkami. Podstawą jest darmowa baza firm dostępna na stronie.
-              Płacisz tylko wtedy, gdy chcesz dostać eksport CSV albo potrzebujesz konkretnego miasta, branży lub zakresu,
-              którego jeszcze nie ma w bazie.
+              LocalLeads to darmowa baza firm dostępna na stronie.
+              Jeśli brakuje konkretnego miasta, branży lub zakresu, napisz na kontakt@localleads.pl albo przez formularz.
             </p>
           </div>
 
@@ -74,8 +73,8 @@ export default function Services() {
           <Link href="/baza-firm" className={getButtonClass({ tone: 'primary' })}>
             Przeglądaj bazę firm
           </Link>
-          <Link href={contactHref({ source: 'landing - oferta', topic: 'eksport CSV' })} className={getButtonClass({ tone: 'secondary' })}>
-            Zapytaj o eksport CSV
+          <Link href={contactHref({ source: 'landing - zakres', topic: 'brakująca branża lub miasto' })} className={getButtonClass({ tone: 'secondary' })}>
+            Zgłoś brakujące dane
           </Link>
         </div>
       </div>

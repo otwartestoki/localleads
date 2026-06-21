@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props) {
 
   return pageMetadata({
     title: `${landing.industryName} — ${landing.cityName} | baza firm`,
-    description: `Przeglądaj firmy: ${landing.industryName} w lokalizacji ${landing.cityName}. Darmowa baza online i eksport CSV na zamówienie.`,
+    description: `Przeglądaj firmy: ${landing.industryName} w lokalizacji ${landing.cityName}. Darmowa baza online i zgłaszanie brakujących danych.`,
     path: `/branza/${slug}/${city}`,
   });
 }
@@ -44,7 +44,7 @@ export default async function IndustryCityLandingPage({ params }: Props) {
             {landing.industryName} — {landing.cityName}
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-[var(--brand-muted)]">
-            To automatycznie wygenerowana podstrona oparta na kolumnach <code>category</code> oraz <code>city</code> w bazie LocalLeads. Możesz przeglądać firmy online za darmo, a eksport CSV zamówić osobno.
+            To automatycznie wygenerowana podstrona oparta na kolumnach <code>category</code> oraz <code>city</code> w bazie LocalLeads. Możesz przeglądać firmy online za darmo, a brakujące dane zgłosić przez formularz.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <Link href={`/branza/${landing.industrySlug}`} className={getButtonClass({ tone: 'secondary' })}>
@@ -53,8 +53,8 @@ export default async function IndustryCityLandingPage({ params }: Props) {
             <Link href={`/miasto/${landing.citySlug}`} className={getButtonClass({ tone: 'secondary' })}>
               Zobacz całe miasto
             </Link>
-            <Link href={contactHref({ source: `${landing.industryName} ${landing.cityName}`, topic: 'eksport CSV' })} className={getButtonClass({ tone: 'primary' })}>
-              Zapytaj o CSV
+            <Link href={contactHref({ source: `${landing.industryName} ${landing.cityName}`, topic: 'brakujące dane' })} className={getButtonClass({ tone: 'primary' })}>
+              Zgłoś brakujące dane
             </Link>
           </div>
         </div>

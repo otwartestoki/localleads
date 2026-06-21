@@ -11,7 +11,7 @@ export function contactHref(intent: ContactIntent = {}) {
 
   if (intent.source) params.set('zrodlo', intent.source);
   if (intent.topic) params.set('temat', intent.topic);
-  if (intent.packageName) params.set('pakiet', intent.packageName);
+  if (intent.packageName) params.set('zakres', intent.packageName);
   if (intent.city) params.set('miasto', intent.city);
   if (intent.industry) params.set('branza', intent.industry);
 
@@ -27,7 +27,7 @@ export function buildContactMessage(intent: ContactIntent = {}) {
   if (intent.packageName) {
     return `Dzień dobry,
 
-chciałbym zamówić eksport danych do pliku CSV.
+korzystam z darmowej bazy firm LocalLeads i nie widzę potrzebnego zakresu danych.
 
 Interesuje mnie:
 - Zakres: ${intent.packageName}
@@ -35,12 +35,12 @@ ${industry}
 ${city}
 - Przybliżona liczba rekordów:
 
-Proszę o informację, czy taki eksport jest możliwy i jaka byłaby cena.`;
+Proszę o informację, czy taka branża, miasto lub zakres mogą zostać dodane do bazy.`;
   }
 
   return `Dzień dobry,
 
-korzystam z darmowej bazy firm LocalLeads i potrzebuję dodatkowych danych lub eksportu CSV.
+korzystam z darmowej bazy firm LocalLeads i nie widzę potrzebnych danych.
 
 Interesuje mnie:
 ${topic}
@@ -48,5 +48,5 @@ ${industry}
 ${city}
 - Przybliżona liczba rekordów:
 
-Proszę o informację, czy taki zakres jest dostępny i jaka byłaby cena eksportu.`;
+Proszę o informację, czy taka branża, miasto lub zakres mogą zostać dodane do bazy.`;
 }

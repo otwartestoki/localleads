@@ -6,8 +6,8 @@ import { pageMetadata } from '@/lib/seo';
 import { notFound } from 'next/navigation';
 
 export const metadata = pageMetadata({
-  title: 'FAQ — darmowa baza firm i eksport CSV',
-  description: 'Najczęstsze pytania o LocalLeads: darmowa baza firm, wyszukiwanie danych, eksport CSV, brakujące branże i miasta oraz zgłaszanie błędów.',
+  title: 'FAQ — darmowa baza firm',
+  description: 'Najczęstsze pytania o LocalLeads: darmowa baza firm, wyszukiwanie danych, brakujące branże i miasta oraz zgłaszanie błędów.',
   path: '/faq',
 });
 

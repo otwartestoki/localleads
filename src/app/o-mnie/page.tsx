@@ -12,9 +12,9 @@ import { radiusClass } from '@/lib/style';
 import { getButtonClass } from '@/lib/uiStyles';
 
 export const metadata = pageMetadata({
-  title: 'O LocalLeads — darmowa baza firm i eksport CSV',
+  title: 'O LocalLeads — darmowa baza firm',
   description:
-    'LocalLeads to darmowa baza firm do przeglądania online. Płatny jest tylko eksport danych do CSV lub przygotowanie indywidualnego zakresu.',
+    'LocalLeads to darmowa baza firm do przeglądania online. Jeśli brakuje branży lub miasta, napisz na kontakt@localleads.pl albo przez formularz.',
   path: '/o-mnie',
 });
 
@@ -83,10 +83,10 @@ export default function AboutPage() {
                 Przeglądaj bazę firm
               </Link>
               <Link
-                href={contactHref({ source: 'podstrona O mnie', topic: 'eksport danych do CSV' })}
+                href={contactHref({ source: 'podstrona O mnie', topic: 'brakująca branża lub miasto' })}
                 className={getButtonClass({ tone: 'secondary' })}
               >
-                Zapytaj o eksport CSV
+                Zgłoś brakujące dane
               </Link>
             </div>
 
