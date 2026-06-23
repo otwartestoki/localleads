@@ -17,6 +17,8 @@ export type LeadDatabaseStats = {
   websites: number;
   phones: number;
   emails: number;
+  facebook: number;
+  instagram: number;
 };
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -114,6 +116,8 @@ export function getStatsFromRows(rows: LeadSeoRow[], totalOverride?: number): Le
     websites: rows.filter((row) => hasValue(row.website || row.www)).length,
     phones: rows.filter((row) => hasValue(row.phone || row.telefon)).length,
     emails: rows.filter((row) => hasValue(row.email || row.mail)).length,
+    facebook: rows.filter((row) => hasValue(row.facebook || row.fb)).length,
+    instagram: rows.filter((row) => hasValue(row.instagram || row.ig)).length,
   };
 }
 

@@ -13,6 +13,8 @@ type LeadStatsRow = {
   website?: string | null;
   phone?: string | null;
   email?: string | null;
+  facebook?: string | null;
+  instagram?: string | null;
 };
 
 function clean(value: unknown) {
@@ -38,6 +40,8 @@ export async function GET() {
         websites: 0,
         phones: 0,
         emails: 0,
+        facebook: 0,
+        instagram: 0,
       },
       { status: 500 },
     );
@@ -64,6 +68,8 @@ export async function GET() {
         websites: 0,
         phones: 0,
         emails: 0,
+        facebook: 0,
+        instagram: 0,
       },
       { status: 500 },
     );
@@ -71,7 +77,7 @@ export async function GET() {
 
   const { data, error } = await supabase
     .from("leads")
-    .select("category, city, website, phone, email")
+    .select("category, city, website, phone, email, facebook, instagram")
     .range(0, MAX_ROWS_FOR_UNIQUE_STATS - 1);
 
   if (error) {
@@ -84,6 +90,8 @@ export async function GET() {
         websites: 0,
         phones: 0,
         emails: 0,
+        facebook: 0,
+        instagram: 0,
       },
       { status: 500 },
     );
@@ -95,6 +103,8 @@ export async function GET() {
   let websites = 0;
   let phones = 0;
   let emails = 0;
+  let facebook = 0;
+  let instagram = 0;
 
   rows.forEach((row) => {
     const category = normalizeKey(row.category);
@@ -105,6 +115,8 @@ export async function GET() {
     if (hasValue(row.website)) websites += 1;
     if (hasValue(row.phone)) phones += 1;
     if (hasValue(row.email)) emails += 1;
+    if (hasValue(row.facebook)) facebook += 1;
+    if (hasValue(row.instagram)) instagram += 1;
   });
 
   return NextResponse.json({
@@ -115,5 +127,7 @@ export async function GET() {
     websites,
     phones,
     emails,
+    facebook,
+    instagram,
   });
 }

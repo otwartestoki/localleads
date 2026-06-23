@@ -26,6 +26,8 @@ const emptyStats: LeadDatabaseStats = {
   websites: 0,
   phones: 0,
   emails: 0,
+  facebook: 0,
+  instagram: 0,
 };
 
 const preferredColumns = [
@@ -207,7 +209,7 @@ export default function LeadDatabaseTable() {
           </Link>
         </div>
 
-        <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
           <div className="rounded-2xl border border-white/10 bg-white/[.04] p-4">
             <div className="text-xs font-bold text-[var(--brand-muted)]">Firmy</div>
             <div className="mt-1 text-3xl font-black text-white">{formatNumber(stats.total)}</div>
@@ -227,6 +229,14 @@ export default function LeadDatabaseTable() {
           <div className="rounded-2xl border border-white/10 bg-white/[.04] p-4">
             <div className="text-xs font-bold text-[var(--brand-muted)]">Telefony</div>
             <div className="mt-1 text-3xl font-black text-white">{formatNumber(stats.phones)}</div>
+          </div>
+          <div className="rounded-2xl border border-white/10 bg-white/[.04] p-4">
+            <div className="text-xs font-bold text-[var(--brand-muted)]">FB</div>
+            <div className="mt-1 text-3xl font-black text-white">{formatNumber(stats.facebook)}</div>
+          </div>
+          <div className="rounded-2xl border border-white/10 bg-white/[.04] p-4">
+            <div className="text-xs font-bold text-[var(--brand-muted)]">IG</div>
+            <div className="mt-1 text-3xl font-black text-white">{formatNumber(stats.instagram)}</div>
           </div>
         </div>
       </section>
