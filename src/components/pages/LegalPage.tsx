@@ -13,6 +13,7 @@ type LegalPageProps = {
   title: string;
   lead: string;
   sections: readonly LegalSection[];
+  children?: React.ReactNode;
 };
 
 const legal = (site as any).legal || {};
@@ -32,7 +33,7 @@ export function LegalCompanyBox() {
   );
 }
 
-export default function LegalPage({ eyebrow, title, lead, sections }: LegalPageProps) {
+export default function LegalPage({ eyebrow, title, lead, sections, children }: LegalPageProps) {
   return (
     <PageShell>
       <section className="section brand-section-dark">
@@ -78,6 +79,7 @@ export default function LegalPage({ eyebrow, title, lead, sections }: LegalPageP
               </article>
             ))}
           </div>
+          {children ? <div className="mt-8 text-center">{children}</div> : null}
         </div>
       </section>
     </PageShell>

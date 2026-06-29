@@ -154,7 +154,7 @@ export default function CookieConsent() {
                     className="h-5 w-5 accent-[#38bdf8]"
                   />
                 </div>
-                <p className="mt-2 text-sm leading-6 text-slate-400">Pomagają mierzyć ruch i poprawiać stronę, np. Google Analytics lub podobne narzędzia.</p>
+                <p className="mt-2 text-sm leading-6 text-slate-400">Pomagają mierzyć ruch i poprawiać stronę z użyciem Google Analytics 4 oraz Microsoft Clarity.</p>
               </label>
 
               <label className="cursor-pointer rounded-2xl border border-white/10 bg-white/[0.03] p-4 transition hover:border-[#38bdf8]/60">

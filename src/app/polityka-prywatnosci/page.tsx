@@ -51,7 +51,7 @@ export default function PrivacyPage() {
             'obsługa zgłoszeń brakujących branż, miast, zakresów danych lub błędów w bazie,',
             'porządkowanie i aktualizacja publicznie dostępnych informacji biznesowych,',
             'ochrona serwisu, dochodzenie lub obrona przed roszczeniami,',
-            'analiza działania strony i poprawa jakości serwisu, jeśli użytkownik wyrazi zgodę na cookies analityczne.',
+            'analiza działania strony i poprawa jakości serwisu z użyciem Google Analytics 4 oraz Microsoft Clarity, jeśli użytkownik wyrazi zgodę na cookies analityczne.',
           ],
         },
         {
@@ -59,7 +59,7 @@ export default function PrivacyPage() {
           items: [
             'art. 6 ust. 1 lit. f RODO — prawnie uzasadniony interes administratora, w tym obsługa kontaktu, ochrona serwisu oraz analiza publicznie dostępnych informacji biznesowych,',
             'art. 6 ust. 1 lit. c RODO — realizacja obowiązków prawnych, jeśli mają zastosowanie,',
-            'art. 6 ust. 1 lit. a RODO — zgoda, np. dla opcjonalnych cookies analitycznych.',
+            'art. 6 ust. 1 lit. a RODO — zgoda, w szczególności dla opcjonalnych cookies analitycznych Google Analytics 4 i Microsoft Clarity.',
           ],
         },
         {
@@ -71,7 +71,8 @@ export default function PrivacyPage() {
             'hosting strony internetowej,',
             'poczta elektroniczna,',
             'formularz kontaktowy,',
-            'narzędzia analityczne po wyrażeniu zgody.',
+            'Google Analytics 4, jeżeli użytkownik wyrazi zgodę na cookies analityczne,',
+            'Microsoft Clarity, jeżeli użytkownik wyrazi zgodę na cookies analityczne.',
           ],
         },
         {
@@ -79,6 +80,7 @@ export default function PrivacyPage() {
           paragraphs: [
             'Dane z korespondencji przechowywane są przez okres potrzebny do obsługi zgłoszenia oraz zabezpieczenia ewentualnych roszczeń.',
             'Dane przetwarzane na podstawie zgody są przetwarzane do czasu jej wycofania, chyba że istnieje inna podstawa prawna dalszego przetwarzania.',
+            'Informacje analityczne przetwarzane przez Google Analytics 4 i Microsoft Clarity są przechowywane zgodnie z ustawieniami tych narzędzi oraz ich dokumentacją. Zmiana lub cofnięcie zgody blokuje dalsze uruchamianie tych narzędzi bez zgody użytkownika.',
             'Dane wykorzystywane w bazie firm są aktualizowane lub usuwane, gdy administrator otrzyma wiarygodną informację o ich nieaktualności, błędzie albo zasadnym sprzeciwie.',
           ],
         },
