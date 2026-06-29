@@ -33,6 +33,10 @@ type ApiResponse = {
 
 type DataFlag = "website" | "phone" | "email" | "facebook" | "instagram";
 type SortMode = "newest" | "name_asc" | "name_desc" | "category_asc" | "city_asc" | "completeness_desc";
+type LeadWorkStatus = "new" | "checked" | "contact" | "rejected";
+type StatusFilter = "all" | LeadWorkStatus;
+
+const STATUS_STORAGE_KEY = "localleads-lead-work-status-v1";
 
 const emptyStats: LeadDatabaseStats = {
   total: 0,
@@ -70,6 +74,21 @@ const sortOptions: Array<{ value: SortMode; label: string }> = [
   { value: "name_desc", label: "Firma Z-A" },
   { value: "category_asc", label: "Branża A-Z" },
   { value: "city_asc", label: "Miasto A-Z" },
+];
+
+const statusLabels: Record<LeadWorkStatus, string> = {
+  new: "Nowe",
+  checked: "Sprawdzone",
+  contact: "Do kontaktu",
+  rejected: "Odrzucone",
+};
+
+const statusFilterOptions: Array<{ value: StatusFilter; label: string }> = [
+  { value: "all", label: "Wszystkie" },
+  { value: "new", label: "Nowe" },
+  { value: "checked", label: "Sprawdzone" },
+  { value: "contact", label: "Do kontaktu" },
+  { value: "rejected", label: "Odrzucone" },
 ];
 
 function formatNumber(value: number) {
@@ -146,6 +165,20 @@ function getLeadInstagram(lead: LeadRecord) {
   return getValue(lead, ["instagram", "ig"]);
 }
 
+function getLeadKey(lead: LeadRecord) {
+  return [
+    getValue(lead, ["id"]),
+    getLeadName(lead),
+    getLeadAddress(lead),
+    getLeadCity(lead),
+    getLeadPhone(lead),
+    getLeadWebsite(lead),
+  ]
+    .filter(Boolean)
+    .join("|")
+    .toLowerCase();
+}
+
 function hasValue(value: string) {
   return value.trim().length > 0;
 }
@@ -172,6 +205,30 @@ function getCompletenessClass(score: number) {
   if (score >= 2) return "border-sky-300/25 bg-sky-300/10 text-sky-100";
   if (score === 1) return "border-amber-300/25 bg-amber-300/10 text-amber-100";
   return "border-white/10 bg-white/[.04] text-white/55";
+}
+
+function getStatusClass(status: LeadWorkStatus) {
+  if (status === "checked") return "border-white/10 bg-white/[.04] text-white/50";
+  if (status === "contact") return "border-emerald-300/25 bg-emerald-300/10 text-emerald-100";
+  if (status === "rejected") return "border-red-300/25 bg-red-300/10 text-red-100";
+  return "border-sky-300/20 bg-sky-300/8 text-sky-100";
+}
+
+function readStoredStatuses() {
+  try {
+    const raw = localStorage.getItem(STATUS_STORAGE_KEY);
+    return raw ? (JSON.parse(raw) as Record<string, LeadWorkStatus>) : {};
+  } catch {
+    return {};
+  }
+}
+
+function saveStoredStatuses(statuses: Record<string, LeadWorkStatus>) {
+  try {
+    localStorage.setItem(STATUS_STORAGE_KEY, JSON.stringify(statuses));
+  } catch {
+    // localStorage may be unavailable in private mode.
+  }
 }
 
 function StatTile({ label, value }: { label: string; value: number }) {
@@ -296,7 +353,37 @@ function DataFlagButton({
   );
 }
 
-function LeadMobileCard({ lead }: { lead: LeadRecord }) {
+function StatusSelect({
+  status,
+  onChange,
+}: {
+  status: LeadWorkStatus;
+  onChange: (status: LeadWorkStatus) => void;
+}) {
+  return (
+    <select
+      value={status}
+      onChange={(event) => onChange(event.target.value as LeadWorkStatus)}
+      className={`rounded-full border px-3 py-2 text-xs font-black outline-none transition ${getStatusClass(status)}`}
+    >
+      {(Object.keys(statusLabels) as LeadWorkStatus[]).map((option) => (
+        <option key={option} value={option} className="bg-[#020617] text-white">
+          {statusLabels[option]}
+        </option>
+      ))}
+    </select>
+  );
+}
+
+function LeadMobileCard({
+  lead,
+  status,
+  onStatusChange,
+}: {
+  lead: LeadRecord;
+  status: LeadWorkStatus;
+  onStatusChange: (status: LeadWorkStatus) => void;
+}) {
   const name = getLeadName(lead);
   const category = getLeadCategory(lead);
   const city = getLeadCity(lead);
@@ -308,7 +395,7 @@ function LeadMobileCard({ lead }: { lead: LeadRecord }) {
   const mapsUrl = getGoogleMapsUrl(lead);
 
   return (
-    <article className="rounded-2xl border border-white/10 bg-white/[.035] p-4">
+    <article className={`rounded-2xl border border-white/10 bg-white/[.035] p-4 transition ${status === "checked" || status === "rejected" ? "opacity-55" : ""}`}>
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <h3 className="line-clamp-2 text-base font-black text-white">{name}</h3>
@@ -346,6 +433,11 @@ function LeadMobileCard({ lead }: { lead: LeadRecord }) {
           <CopyButton value={email} label="mail" />
         </div>
       </div>
+
+      <div className="mt-4 flex items-center justify-between gap-3 border-t border-white/10 pt-4">
+        <span className="text-xs font-black uppercase tracking-[.12em] text-white/38">Status</span>
+        <StatusSelect status={status} onChange={onStatusChange} />
+      </div>
     </article>
   );
 }
@@ -365,11 +457,17 @@ export default function LeadDatabaseTable() {
   const [limit, setLimit] = useState(25);
   const [sort, setSort] = useState<SortMode>("newest");
   const [requiredFlags, setRequiredFlags] = useState<DataFlag[]>([]);
+  const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
+  const [workStatuses, setWorkStatuses] = useState<Record<string, LeadWorkStatus>>({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   const totalPages = Math.max(1, Math.ceil(count / limit));
-  const hasActiveFilters = Boolean(query || category || city || requiredFlags.length || sort !== "newest");
+  const hasActiveFilters = Boolean(query || category || city || requiredFlags.length || sort !== "newest" || statusFilter !== "all");
+
+  useEffect(() => {
+    setWorkStatuses(readStoredStatuses());
+  }, []);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -425,7 +523,7 @@ export default function LeadDatabaseTable() {
 
   useEffect(() => {
     setPage(1);
-  }, [query, category, city, limit, sort, requiredFlags]);
+  }, [query, category, city, limit, sort, requiredFlags, statusFilter]);
 
   const rangeLabel = useMemo(() => {
     if (!count) return "0 wyników";
@@ -445,10 +543,33 @@ export default function LeadDatabaseTable() {
     setRequiredFlags([]);
     setLimit(25);
     setSort("newest");
+    setStatusFilter("all");
   };
 
   const categorySuggestions = stats.categories.slice(0, 80);
   const citySuggestions = stats.cities.slice(0, 80);
+  const getLeadStatus = (lead: LeadRecord): LeadWorkStatus => workStatuses[getLeadKey(lead)] || "new";
+  const setLeadStatus = (lead: LeadRecord, status: LeadWorkStatus) => {
+    setWorkStatuses((current) => {
+      const key = getLeadKey(lead);
+      const next = { ...current };
+
+      if (status === "new") {
+        delete next[key];
+      } else {
+        next[key] = status;
+      }
+
+      saveStoredStatuses(next);
+      return next;
+    });
+  };
+  const visibleLeads = statusFilter === "all" ? leads : leads.filter((lead) => getLeadStatus(lead) === statusFilter);
+  const currentPageStatusCounts: Record<LeadWorkStatus, number> = { new: 0, checked: 0, contact: 0, rejected: 0 };
+  leads.forEach((lead) => {
+    const status = getLeadStatus(lead);
+    currentPageStatusCounts[status] = currentPageStatusCounts[status] + 1;
+  });
 
   return (
     <div className={`${radiusClass()} border border-[var(--brand-line)] bg-[var(--brand-surface)]/75 p-4 shadow-[0_24px_90px_rgba(56,189,248,.1)] md:p-6`}>
@@ -551,6 +672,32 @@ export default function LeadDatabaseTable() {
             </button>
           ) : null}
         </div>
+
+        <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-white/10 bg-white/[.025] p-3">
+          <label className="flex items-center gap-2 text-xs font-black uppercase tracking-[.14em] text-white/45">
+            Status pracy
+            <select
+              value={statusFilter}
+              onChange={(event) => setStatusFilter(event.target.value as StatusFilter)}
+              className="rounded-full border border-white/10 bg-[#020617] px-3 py-2 text-xs font-black normal-case tracking-normal text-white outline-none transition focus:border-[var(--brand-primary)]/70"
+            >
+              {statusFilterOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </label>
+          <div className="flex flex-wrap gap-2 text-xs font-bold text-white/50">
+            <span>Nowe: {currentPageStatusCounts.new}</span>
+            <span>Sprawdzone: {currentPageStatusCounts.checked}</span>
+            <span>Do kontaktu: {currentPageStatusCounts.contact}</span>
+            <span>Odrzucone: {currentPageStatusCounts.rejected}</span>
+          </div>
+          <p className="text-xs font-semibold text-white/38">
+            Statusy zapisuja sie tylko w tej przegladarce.
+          </p>
+        </div>
       </div>
 
       <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
@@ -581,22 +728,23 @@ export default function LeadDatabaseTable() {
             <table className="min-w-full border-collapse text-left text-sm">
               <thead className="bg-white/[.06] text-xs uppercase tracking-[.14em] text-[var(--brand-primary-soft)]">
                 <tr>
-                  <th className="w-[34%] px-4 py-4 font-black">Firma</th>
-                  <th className="w-[18%] px-4 py-4 font-black">Branża</th>
-                  <th className="w-[22%] px-4 py-4 font-black">Lokalizacja</th>
-                  <th className="w-[16%] px-4 py-4 font-black">Kontakt</th>
+                  <th className="w-[28%] px-4 py-4 font-black">Firma</th>
+                  <th className="w-[15%] px-4 py-4 font-black">Branża</th>
+                  <th className="w-[20%] px-4 py-4 font-black">Lokalizacja</th>
+                  <th className="w-[14%] px-4 py-4 font-black">Kontakt</th>
                   <th className="w-[10%] px-4 py-4 font-black">Jakość</th>
+                  <th className="w-[13%] px-4 py-4 font-black">Status</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/10">
                 {isLoading ? (
                   <tr>
-                    <td colSpan={5} className="px-4 py-10 text-center text-[var(--brand-muted)]">
+                    <td colSpan={6} className="px-4 py-10 text-center text-[var(--brand-muted)]">
                       Ładowanie danych...
                     </td>
                   </tr>
-                ) : leads.length > 0 ? (
-                  leads.map((lead, index) => {
+                ) : visibleLeads.length > 0 ? (
+                  visibleLeads.map((lead, index) => {
                     const name = getLeadName(lead);
                     const categoryValue = getLeadCategory(lead);
                     const cityValue = getLeadCity(lead);
@@ -606,9 +754,10 @@ export default function LeadDatabaseTable() {
                     const email = getLeadEmail(lead);
                     const score = getCompleteness(lead);
                     const mapsUrl = getGoogleMapsUrl(lead);
+                    const status = getLeadStatus(lead);
 
                     return (
-                      <tr key={String(lead.id || `${name}-${index}`)} className="align-top transition hover:bg-white/[.035]">
+                      <tr key={String(lead.id || `${name}-${index}`)} className={`align-top transition hover:bg-white/[.035] ${status === "checked" || status === "rejected" ? "opacity-55" : ""}`}>
                         <td className="px-4 py-4">
                           <div className="flex gap-3">
                             <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[.035] text-white/55">
@@ -652,12 +801,15 @@ export default function LeadDatabaseTable() {
                             {getCompletenessLabel(score)}
                           </span>
                         </td>
+                        <td className="px-4 py-4">
+                          <StatusSelect status={status} onChange={(nextStatus) => setLeadStatus(lead, nextStatus)} />
+                        </td>
                       </tr>
                     );
                   })
                 ) : (
                   <tr>
-                    <td colSpan={5} className="px-4 py-10 text-center text-[var(--brand-muted)]">
+                    <td colSpan={6} className="px-4 py-10 text-center text-[var(--brand-muted)]">
                       Brak wyników dla wybranych filtrów.
                     </td>
                   </tr>
@@ -671,8 +823,15 @@ export default function LeadDatabaseTable() {
               <div className="rounded-2xl border border-white/10 bg-white/[.035] p-6 text-center text-sm font-bold text-[var(--brand-muted)]">
                 Ładowanie danych...
               </div>
-            ) : leads.length > 0 ? (
-              leads.map((lead, index) => <LeadMobileCard key={String(lead.id || `${getLeadName(lead)}-${index}`)} lead={lead} />)
+            ) : visibleLeads.length > 0 ? (
+              visibleLeads.map((lead, index) => (
+                <LeadMobileCard
+                  key={String(lead.id || `${getLeadName(lead)}-${index}`)}
+                  lead={lead}
+                  status={getLeadStatus(lead)}
+                  onStatusChange={(nextStatus) => setLeadStatus(lead, nextStatus)}
+                />
+              ))
             ) : (
               <div className="rounded-2xl border border-white/10 bg-white/[.035] p-6 text-center text-sm font-bold text-[var(--brand-muted)]">
                 Brak wyników dla wybranych filtrów.
