@@ -44,7 +44,8 @@ export default async function IndustryLandingPage({ params }: Props) {
             Baza firm: {landing.name}
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-[var(--brand-muted)]">
-            W LocalLeads znajdziesz firmy z tej branży dostępne do darmowego przeglądania online. Jeżeli brakuje lokalizacji lub zakresu danych, zgłoś to przez formularz.
+            W LocalLeads znajdziesz firmy z tej branży dostępne do darmowego przeglądania online. Przejdź do bazy, żeby
+            filtrować wyniki po mieście, kontakcie, stronie WWW i social media.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <Link href={`/baza-firm?category=${encodeURIComponent(landing.name)}`} className={getButtonClass({ tone: 'primary' })}>
@@ -69,14 +70,16 @@ export default async function IndustryLandingPage({ params }: Props) {
               <div className="mt-2 text-5xl font-black text-white">{formatNumber(landing.count)}</div>
             </div>
             <p className="mt-5 leading-8 text-[var(--brand-muted)]">
-              Strona powstaje automatycznie na podstawie kolumny <code>category</code> w tabeli <code>leads</code>.
+              To aktualny zakres firm przypisanych do tej branży. Jeżeli brakuje lokalizacji lub typu danych, możesz
+              zgłosić to przez formularz.
             </p>
           </div>
 
           <div className={`${radiusClass()} border border-[var(--brand-line)] bg-[var(--brand-surface)]/75 p-6 md:p-8`}>
             <h2 className="text-3xl font-black tracking-[-.04em]">Miasta w tej branży</h2>
             <p className="mt-4 leading-7 text-[var(--brand-muted)]">
-              Lista powstaje wyłącznie z kolumny <code>city</code>. Rekordy bez uzupełnionego miasta są pomijane w tym zestawieniu.
+              Miasta, w których są już widoczne firmy z tej branży. Rekordy bez przypisanej lokalizacji mogą być dostępne
+              w głównej bazie, ale nie pojawiają się na tej liście.
             </p>
             <div className="mt-6 grid gap-2 sm:grid-cols-2">
               {landing.cities.length ? landing.cities.map((city) => (
@@ -84,7 +87,7 @@ export default async function IndustryLandingPage({ params }: Props) {
                   <span>{city.name}</span>
                   <span className="text-[var(--brand-primary-soft)]">{formatNumber(city.count)}</span>
                 </Link>
-              )) : <p className="text-sm text-[var(--brand-muted)]">Brak miast, bo kolumna <code>city</code> nie jest uzupełniona dla tej branży.</p>}
+              )) : <p className="text-sm text-[var(--brand-muted)]">Brak miast do wyświetlenia dla tej branży.</p>}
             </div>
           </div>
         </div>

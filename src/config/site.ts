@@ -1,6 +1,6 @@
 export const preset = {
   "name": "LocalLeads premium dark",
-  "description": "Ciemna strona sprzedażowa dla baz leadów CSV.",
+  "description": "Ciemna strona produktowa dla darmowej bazy firm online.",
   "radius": "rounded",
   "decorative": "gradient",
   "heroVariant": "fixed-cover",
@@ -59,14 +59,14 @@ export const preset = {
   },
   "hero": {
     "image": "/media/hero.webp",
-    "imageAlt": "LocalLeads — baza leadów firmowych CSV"
+    "imageAlt": "LocalLeads — darmowa baza firm online"
   }
 } as const;
 
 export const site = {
   "business": {
     "name": "LocalLeads",
-    "type": "baza leadów B2B CSV",
+    "type": "darmowa baza firm online",
     "city": "Polska",
     "address": "cała Polska",
     "phone": "+48 506 105 098",
@@ -77,7 +77,7 @@ export const site = {
     "whatsappUrl": "",
     "messengerUrl": ""
   },
-  "description": "LocalLeads to darmowa baza firm do przeglądania i filtrowania. Pomaga agencjom, handlowcom i twórcom stron szybciej znaleźć lokalne firmy. Jeśli brakuje konkretnej branży albo miasta, napisz na kontakt@localleads.pl lub przez formularz.",
+  "description": "LocalLeads to darmowa baza firm do przeglądania, filtrowania i pracy na kontaktach. Pomaga agencjom, handlowcom i twórcom stron szybciej znaleźć lokalne firmy, sprawdzić dane kontaktowe i oznaczyć rekordy do dalszej pracy.",
   "ctaLabel": "Przeglądaj bazę firm",
   "theme": {
     "primary": "#38bdf8",
@@ -94,7 +94,7 @@ export const site = {
   },
   "preset": {
     "name": "LocalLeads premium dark",
-    "description": "Ciemna strona sprzedażowa dla baz leadów CSV.",
+    "description": "Ciemna strona produktowa dla darmowej bazy firm online.",
     "radius": "rounded",
     "decorative": "gradient",
     "heroVariant": "fixed-cover",
@@ -153,7 +153,7 @@ export const site = {
     },
     "hero": {
       "image": "/media/hero.webp",
-      "imageAlt": "LocalLeads — baza leadów firmowych CSV"
+      "imageAlt": "LocalLeads — darmowa baza firm online"
     }
   },
   "media": {
@@ -235,37 +235,37 @@ export const site = {
       "href": "/o-mnie",
       "label": "O mnie",
       "title": "O LocalLeads",
-      "subtitle": "Buduję praktyczne bazy leadów dla firm, które chcą szybciej znaleźć klientów, partnerów lub lokalne kontakty biznesowe.",
+      "subtitle": "Buduję praktyczne narzędzia do pracy na lokalnych danych firmowych: bazę online, indeks branż i katalog firm na mapie.",
       "lead": "LocalLeads powstało z potrzeby uporządkowania procesu szukania firm: bez przypadkowych list, pustych rekordów i danych, których nikt nie weryfikuje.",
       "blocks": []
     },
     "services": {
       "enabled": true,
       "href": "/oferta",
-      "label": "Oferta",
-      "title": "Darmowa baza firm",
-      "subtitle": "Korzystasz z otwartej bazy na stronie. Jeśli brakuje branży lub miasta, zgłaszasz to przez formularz albo kontakt@localleads.pl."
+      "label": "Narzędzia",
+      "title": "Narzędzia LocalLeads",
+      "subtitle": "Przeglądaj bazę B2B, sprawdzaj firmy na mapie i korzystaj z indeksu branż oraz miast."
     },
     "database": {
       "enabled": true,
       "href": "/baza-firm",
       "label": "Baza firm",
       "title": "Darmowa baza firm",
-      "subtitle": "Przeglądaj i filtruj firmy z bazy online."
+      "subtitle": "Szukaj po nazwie, branży, mieście, telefonie, domenie i dostępnych kanałach kontaktu."
     },
     "localCatalog": {
       "enabled": true,
       "href": "/katalog-firm",
       "label": "Katalog lokalny",
       "title": "Katalog lokalny",
-      "subtitle": "Znajdź firmy najbliżej wybranej lokalizacji."
+      "subtitle": "Ustaw punkt startowy, wybierz promień i porównaj lokalne firmy na mapie."
     },
     "index": {
       "enabled": true,
       "href": "/indeks-bazy",
       "label": "Indeks bazy",
       "title": "Indeks bazy firm",
-      "subtitle": "Automatyczny indeks branż i miast tworzony z kolumn category oraz city."
+      "subtitle": "Sprawdź, które branże i miasta są już dostępne w bazie."
     },
     "pricing": {
       "enabled": false,
@@ -321,7 +321,7 @@ export const site = {
         "enabled": true
       },
       {
-        "label": "Oferta",
+        "label": "Narzędzia",
         "href": "/uslugi",
         "enabled": true
       },
@@ -359,26 +359,26 @@ export const site = {
   },
   "hero": {
     "eyebrow": "Darmowa baza firm do przeglądania",
-    "title": "Otwarta baza firm dla sprzedaży, SEO i lokalnego prospectingu",
-    "description": "LocalLeads udostępnia bazę firm za darmo, żebyś mógł szybko sprawdzić lokalne biznesy, branże i dane kontaktowe. To narzędzie dla agencji SEO, twórców stron, handlowców B2B i osób budujących kampanie lokalne. Jeśli czegoś brakuje, napisz na kontakt@localleads.pl lub przez formularz.",
+    "title": "Darmowa baza firm do prospectingu, SEO i lokalnego researchu",
+    "description": "Przeglądaj firmy, filtruj kontakty, otwieraj strony WWW i social media, kopiuj dane oraz oznaczaj rekordy do dalszej pracy. LocalLeads pomaga agencjom SEO, twórcom stron i handlowcom B2B szybciej sprawdzić lokalny rynek.",
     "primaryCta": "Przeglądaj bazę firm",
     "primaryHref": "/baza-firm",
-    "secondaryCta": "Skontaktuj się",
-    "secondaryHref": "/kontakt",
+    "secondaryCta": "Sprawdź katalog lokalny",
+    "secondaryHref": "/katalog-firm",
     "floatingCardTitle": "Darmowy dostęp",
     "floatingCardText": "Podstawą LocalLeads jest otwarta baza do przeglądania. Brakujące branże i miasta można zgłosić przez formularz.",
     "stats": [
       {
-        "value": "CSV",
-        "label": "baza dostępna na stronie"
+        "value": "online",
+        "label": "baza dostępna w przeglądarce"
       },
       {
         "value": "PL",
         "label": "miasta i regiony Polski"
       },
       {
-        "value": "manual",
-        "label": "ręczna kontrola danych"
+        "value": "mapa",
+        "label": "katalog lokalny z promieniem"
       }
     ]
   },
@@ -400,10 +400,10 @@ export const site = {
     }
   ],
   "servicesSection": {
-    "eyebrow": "Oferta LocalLeads",
-    "previewTitle": "Dla kogo jest LocalLeads?",
-    "fullTitle": "Darmowa baza firm dla osób, które pracują na danych",
-    "lead": "LocalLeads jest dla agencji SEO, freelancerów od stron WWW, handlowców B2B i firm, które chcą szybko sprawdzić lokalny rynek. Dane na stronie są dostępne za darmo, a brakujące miasta lub branże możesz zgłosić kontaktowo.",
+    "eyebrow": "Narzędzia LocalLeads",
+    "previewTitle": "Co możesz zrobić w LocalLeads?",
+    "fullTitle": "Baza firm, indeks branż i katalog lokalny w jednym miejscu",
+    "lead": "LocalLeads jest dla agencji SEO, freelancerów od stron WWW, handlowców B2B i osób analizujących lokalne rynki. Możesz filtrować firmy po danych kontaktowych, sprawdzać branże i miasta oraz szukać najbliższych firm na mapie.",
     "previewCta": "Zobacz bazę firm",
     "cardCta": "Sprawdź szczegóły"
   },
@@ -411,10 +411,10 @@ export const site = {
     {
       "slug": "darmowa-baza-firm",
       "title": "Darmowe przeglądanie bazy",
-      "short": "Korzystasz z bazy firm na stronie. Filtrujesz dane po mieście, branży i frazie.",
-      "shortText": "Podstawowa wartość LocalLeads jest dostępna za darmo.",
-      "description": "Otwarta baza firm dostępna na stronie.",
-      "details": "Wybierasz branżę i lokalizację w bazie online, a następnie przeglądasz publicznie dostępne informacje o firmach.",
+      "short": "Szukasz firm po frazie, branży, mieście i dostępnych kanałach kontaktu.",
+      "shortText": "Najważniejsze dane są dostępne bez logowania.",
+      "description": "Otwarta baza firm do filtrowania i pracy na rekordach.",
+      "details": "Wybierasz branżę, miasto lub dowolną frazę, filtrujesz rekordy z WWW, telefonem, e-mailem albo social media i oznaczasz firmy do dalszej pracy.",
       "price": "darmowe",
       "image": "/media/services-1.webp",
       "category": "Darmowa baza",
@@ -422,29 +422,29 @@ export const site = {
       "heroLead": "Firmy z konkretnej branży i lokalizacji dostępne do przeglądania online.",
       "sections": [],
       "bullets": [
-        "branża + miasto lub region",
-        "dane kontaktowe",
-        "social media jeśli dostępne"
+        "branża, miasto i fraza",
+        "telefon, e-mail, WWW",
+        "status pracy w przeglądarce"
       ],
       "faq": []
     },
     {
       "slug": "research-lokalny",
-      "title": "Dla SEO, stron WWW i sprzedaży",
-      "short": "Baza pomaga znaleźć firmy do audytów SEO, ofert stron internetowych, prospectingu B2B i analizy lokalnego rynku.",
-      "shortText": "Dane jako punkt startowy do realnej pracy.",
-      "description": "Dla osób, które pracują na lokalnych danych firmowych.",
-      "details": "Baza pomaga sprawdzić większy rynek, przygotować research lokalny albo porównać kilka lokalizacji.",
+      "title": "Indeks branż i miast",
+      "short": "Sprawdzasz, które branże i lokalizacje są już dostępne, a potem przechodzisz do gotowego widoku bazy.",
+      "shortText": "Szybka mapa zasięgu danych.",
+      "description": "Dla osób, które chcą zacząć od konkretnej branży lub miasta.",
+      "details": "Indeks porządkuje dostępne branże i lokalizacje, pokazuje liczbę firm oraz prowadzi do przefiltrowanej bazy.",
       "price": "darmowe",
       "image": "/media/services-2.webp",
-      "category": "Region",
+      "category": "Indeks",
       "duration": "online",
-      "heroLead": "Kilka miast, region lub województwo do przeglądania online.",
+      "heroLead": "Branże i miasta dostępne w bazie bez technicznego szukania po tabelach.",
       "sections": [],
       "bullets": [
-        "kilka miast lub województwo",
-        "dane do filtrowania na stronie",
-        "dane kontaktowe i social media"
+        "branże z liczbą firm",
+        "miasta z liczbą rekordów",
+        "szybkie przejście do bazy"
       ],
       "faq": []
     },
@@ -471,20 +471,20 @@ export const site = {
   ],
   "about": {
     "title": "Po co powstało LocalLeads",
-    "text": "LocalLeads ma być praktycznym, darmowym miejscem do sprawdzania lokalnych firm. Baza ma budować użyteczność i zaufanie przez łatwy dostęp do danych.",
+    "text": "LocalLeads ma być praktycznym miejscem do sprawdzania lokalnych firm: od szybkiego researchu po oznaczanie rekordów do kontaktu.",
     "pageTitle": "O mnie",
     "pageLead": "Za LocalLeads stoi praktyczne podejście: baza ma być użyteczna, czytelna i gotowa do pracy, a nie tylko długa.",
     "paragraphs": [
-      "Pomysł na LocalLeads powstał przy pracy nad lokalną sprzedażą usług internetowych. Szybko okazało się, że największym problemem nie jest sama oferta, ale uporządkowane znalezienie firm, sprawdzenie kontaktów i przygotowanie danych w formacie, który da się wykorzystać w CRM.",
-      "Dlatego baza jest budowana wokół realnego zastosowania: agencja SEO może szukać firm bez widoczności w Google, twórca stron może znaleźć biznesy z przestarzałą witryną, handlowiec B2B może zebrać kontakty z wybranego regionu, a firma usługowa może znaleźć partnerów lokalnych.",
-      "Nie obiecuję magicznej sprzedaży. Udostępniam uporządkowany punkt startowy: dane firmowe, sensowny podział i możliwość zgłoszenia brakującej branży lub regionu Polski."
+      "Pomysł na LocalLeads powstał przy pracy nad lokalną sprzedażą usług internetowych. Szybko okazało się, że największym problemem nie jest sama oferta, ale uporządkowane znalezienie firm, sprawdzenie kontaktów i szybka kwalifikacja rekordów.",
+      "Dlatego baza jest budowana wokół realnego zastosowania: agencja SEO może szukać firm w wybranej branży, twórca stron może sprawdzić lokalne biznesy z WWW i social media, a handlowiec B2B może oznaczać kontakty do dalszej pracy.",
+      "Nie obiecuję magicznej sprzedaży. Udostępniam uporządkowany punkt startowy: dane firmowe, filtry, indeks branż i miast oraz katalog lokalny oparty o mapę."
     ]
   },
   "process": [
-    "Przeglądasz darmową bazę firm na stronie",
-    "Filtrujesz rekordy po branży, mieście i danych kontaktowych",
-    "Gdy czegoś brakuje, zgłaszasz konkretną branżę lub miasto",
-    "Jeśli czegoś brakuje, wysyłasz zgłoszenie przez formularz"
+    "Wybierasz bazę B2B, indeks albo katalog lokalny",
+    "Filtrujesz rekordy po branży, mieście, frazie i dostępnych danych kontaktowych",
+    "Kopiujesz dane, otwierasz WWW/social media i oznaczasz status kontaktu",
+    "Gdy czegoś brakuje, zgłaszasz konkretną branżę, miasto lub błąd w danych"
   ],
   "partnersSection": {
     "showHeader": false,
@@ -502,7 +502,7 @@ export const site = {
     "pageDescription": "Praktyczne materiały o pozyskiwaniu kontaktów biznesowych.",
     "showImages": true,
     "emptyTitle": "Wpisy w przygotowaniu",
-    "emptyDescription": "Wkrótce pojawią się poradniki o CSV, prospectingu i lokalnym SEO.",
+    "emptyDescription": "Wkrótce pojawią się poradniki o prospectingu, bazach firm i lokalnym SEO.",
     "fallbackImage": "/media/hero.webp"
   },
   "map": {
@@ -572,7 +572,7 @@ export const site = {
       "title": "Tabela danych",
       "category": "Dane",
       "description": "Przykładowe dane firm gotowe do filtrowania na stronie.",
-      "alt": "Przykład arkusza CSV z leadami firmowymi"
+      "alt": "Przykład tabeli z danymi firmowymi"
     },
     {
       "title": "Dane z social mediami",
@@ -602,12 +602,12 @@ export const site = {
     "booleans": "true = włączone, false = wyłączone"
   },
   "name": "LocalLeads",
-  "businessType": "baza leadów B2B CSV",
+  "businessType": "darmowa baza firm online",
   "city": "Polska",
   "slug": "localleads",
   "seo": {
     "title": "LocalLeads — darmowa baza firm z Polski",
-    "description": "Darmowa baza firm do przeglądania i filtrowania. Dane dla agencji SEO, handlowców B2B, twórców stron i lokalnego prospectingu. Brakujące branże lub miasta możesz zgłosić przez formularz."
+    "description": "Darmowa baza firm do przeglądania i filtrowania. Dane dla agencji SEO, handlowców B2B, twórców stron i lokalnego prospectingu. Sprawdzaj kontakty, indeks branż i katalog lokalny na mapie."
   },
   "colors": {
     "primary": "#38bdf8",
@@ -624,7 +624,7 @@ export const site = {
       "/#hero"
     ],
     [
-      "Oferta",
+      "Narzędzia",
       "/uslugi"
     ],
     [

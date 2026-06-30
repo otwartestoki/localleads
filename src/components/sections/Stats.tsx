@@ -139,7 +139,8 @@ export default function Stats() {
             Aktualny rozmiar bazy LocalLeads
           </h2>
           <p className="mt-4 text-[var(--brand-muted)]">
-            Statystyki na stronie głównej są pobierane bezpośrednio z tabeli Supabase <strong>leads</strong>, więc zmieniają się razem z dodawaniem nowych firm.
+            Statystyki pokazują aktualny zakres dostępnych danych i zmieniają się razem z dodawaniem kolejnych firm,
+            branż oraz lokalizacji.
           </p>
         </div>
 

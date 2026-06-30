@@ -11,7 +11,7 @@ export const dynamic = 'force-dynamic';
 
 export const metadata = pageMetadata({
   title: 'Darmowa baza firm — LocalLeads',
-  description: 'Przeglądaj darmową bazę firm LocalLeads. Szukaj po firmie, branży, adresie, stronie WWW i danych kontaktowych. Jeśli brakuje branży lub miasta, napisz na kontakt@localleads.pl.',
+  description: 'Przeglądaj darmową bazę firm LocalLeads. Filtruj po branży, mieście, frazie i dostępnych kanałach kontaktu, kopiuj dane i oznaczaj rekordy do dalszej pracy.',
   path: '/baza-firm',
 });
 
@@ -26,12 +26,12 @@ export default function BusinessDatabasePage() {
                 Darmowa baza firm
               </p>
               <h1 className="mt-4 text-5xl font-black tracking-[-.06em] md:text-7xl">
-                Przeglądaj bazę firm za darmo
+                Przeglądaj i kwalifikuj firmy za darmo
               </h1>
               <p className="mt-5 max-w-3xl text-lg leading-8 text-[var(--brand-muted)]">
-                LocalLeads ma być użytecznym, otwartym katalogiem dla osób, które szukają firm do prospectingu,
-                lokalnego SEO, sprzedaży usług, analizy rynku albo budowania list kontaktowych. Dane możesz filtrować
-                bezpośrednio na stronie.
+                Szukaj firm do prospectingu, lokalnego SEO, sprzedaży usług i analizy rynku. Filtruj rekordy po branży,
+                mieście, frazie oraz dostępnych danych kontaktowych, otwieraj WWW i social media, kopiuj dane i oznaczaj
+                status pracy w tej przeglądarce.
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
                 <Link href="#tabela" className={getButtonClass({ tone: 'primary' })}>
@@ -54,9 +54,9 @@ export default function BusinessDatabasePage() {
                 Jak korzystać
               </p>
               <ul className="mt-5 grid gap-4 text-sm font-bold leading-6 text-white">
-                <li>1. Wpisz frazę, adres, firmę albo branżę.</li>
-                <li>2. Otwórz stronę firmy lub social media.</li>
-                <li>3. Jeśli brakuje branży lub miasta, wyślij zgłoszenie.</li>
+                <li>1. Wpisz frazę, firmę, miasto albo branżę.</li>
+                <li>2. Zawęź wyniki do rekordów z WWW, telefonem, e-mailem lub social media.</li>
+                <li>3. Skopiuj dane, otwórz mapę albo oznacz firmę jako do kontaktu.</li>
               </ul>
             </div>
           </div>
@@ -73,7 +73,8 @@ export default function BusinessDatabasePage() {
               Firmy dostępne w bazie
             </h2>
             <p className="mt-5 text-lg leading-8 text-[var(--brand-muted)]">
-              Poniżej wyświetlane są rekordy dostępne w bazie. Przeglądanie i filtrowanie danych na stronie jest darmowe. Jeśli brakuje konkretnej branży lub miasta, napisz na kontakt@localleads.pl albo przez formularz.
+              Poniżej wyświetlane są rekordy dostępne w bazie. Możesz je sortować, filtrować po jakości danych, kopiować
+              wybrane pola i zapisywać prosty status pracy lokalnie w przeglądarce.
             </p>
           </div>
 

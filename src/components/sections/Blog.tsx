@@ -41,7 +41,7 @@ export default async function Blog() {
           <div className={`${radiusClass()} card mt-8 p-7`}>
             <h3 className="text-2xl font-black">{config.emptyTitle ?? 'Brak wpisów'}</h3>
             <p className="mt-3 leading-7 opacity-70">
-              {config.emptyDescription ?? 'Dodaj wpisy w Supabase i ustaw poprawny site_slug.'}
+              {config.emptyDescription ?? 'Wkrótce pojawią się tu poradniki o prospectingu, bazach firm i lokalnym SEO.'}
             </p>
           </div>
         ) : (

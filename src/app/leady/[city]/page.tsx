@@ -55,9 +55,10 @@ export default async function CityPage({ params }: Props) {
       <section id="branze" className="bg-white px-5 py-20 md:px-8">
         <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[.8fr_1.2fr]">
           <div>
-            <h2 className="text-4xl font-black tracking-[-.05em]">Strony SEO dla branż w mieście {cityData.name}</h2>
+            <h2 className="text-4xl font-black tracking-[-.05em]">Branże w mieście {cityData.name}</h2>
             <p className="mt-4 leading-8 text-slate-600">
-              Te linki prowadzą do osobnych landing pages typu miasto + branża. Nie muszą być widoczne w głównym menu, ale są dostępne dla Google przez linkowanie wewnętrzne i sitemapę.
+              Wybierz branżę, żeby sprawdzić, jakiego typu firmy możesz znaleźć w tej lokalizacji. Każda podstrona
+              prowadzi do konkretnego zastosowania: researchu rynku, prospectingu albo przygotowania listy firm do kontaktu.
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">

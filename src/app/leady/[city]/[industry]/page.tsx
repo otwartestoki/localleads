@@ -38,7 +38,7 @@ export default async function CityIndustryPage({ params }: Props) {
     <PageShell>
       <section className="bg-slate-950 px-5 py-20 text-white md:px-8">
         <div className="mx-auto max-w-7xl">
-          <p className="text-sm font-black uppercase tracking-[.2em] text-cyan-200">Landing SEO miasto + branża</p>
+          <p className="text-sm font-black uppercase tracking-[.2em] text-cyan-200">Baza firm według miasta i branży</p>
           <h1 className="mt-4 max-w-5xl text-5xl font-black tracking-[-.06em] md:text-7xl">
             {title} — darmowa baza firm
           </h1>
@@ -68,7 +68,7 @@ export default async function CityIndustryPage({ params }: Props) {
           </div>
           <div className="rounded-[2rem] bg-slate-950 p-8 text-white">
             <h2 className="text-2xl font-black">Co dostajesz?</h2>
-            <p className="mt-4 leading-8 text-white/70">Dane firmowe dostępne na stronie: nazwy, lokalizacje, telefony, strony WWW i profile społecznościowe, jeśli są publicznie dostępne.</p>
+            <p className="mt-4 leading-8 text-white/70">Dane firmowe dostępne na stronie: nazwy, lokalizacje, telefony, strony WWW i profile społecznościowe, jeśli są publicznie dostępne. Pełniejszą pracę na rekordach wykonasz w głównej bazie firm.</p>
           </div>
         </div>
       </section>

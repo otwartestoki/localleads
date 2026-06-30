@@ -10,7 +10,7 @@ export const dynamic = 'force-dynamic';
 
 export const metadata = pageMetadata({
   title: 'Indeks bazy firm — LocalLeads',
-  description: 'Branże i lokalizacje dostępne w darmowej bazie firm LocalLeads. Strony tworzone automatycznie z kolumn category i city.',
+  description: 'Branże i lokalizacje dostępne w darmowej bazie firm LocalLeads. Sprawdź, gdzie są już firmy i przejdź do gotowego widoku bazy.',
   path: '/indeks-bazy',
 });
 
@@ -34,7 +34,8 @@ export default async function DatabaseIndexPage() {
             Branże i miasta dostępne w LocalLeads
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-[var(--brand-muted)]">
-            Ta podstrona pokazuje, jakie branże i lokalizacje są obecnie dostępne w bazie. Linki powstają automatycznie z kolumn <code>category</code> oraz <code>city</code> w tabeli Supabase <code>leads</code>.
+            Ta podstrona pokazuje, jakie branże i lokalizacje są obecnie dostępne w bazie. Wybierz zakres, żeby szybciej
+            przejść do firm z konkretnej branży albo miasta.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <Link href="/baza-firm" className={getButtonClass({ tone: 'primary' })}>
@@ -52,7 +53,8 @@ export default async function DatabaseIndexPage() {
           <div className={`${radiusClass()} border border-[var(--brand-line)] bg-[var(--brand-surface)]/75 p-6 md:p-8`}>
             <h2 className="text-3xl font-black tracking-[-.04em]">Branże</h2>
             <p className="mt-4 leading-7 text-[var(--brand-muted)]">
-              Adresy mają format <code>/branza/nazwa-branzy</code>. Linki poniżej powstają wyłącznie z wartości w kolumnie <code>category</code>.
+              Największe branże dostępne w LocalLeads. Liczba obok nazwy pokazuje, ile firm z danego zakresu możesz
+              sprawdzić w bazie.
             </p>
             <div className="mt-6 grid gap-2">
               {topCategories.length ? topCategories.map((item) => (
@@ -67,7 +69,8 @@ export default async function DatabaseIndexPage() {
           <div className={`${radiusClass()} border border-[var(--brand-line)] bg-[var(--brand-surface)]/75 p-6 md:p-8`}>
             <h2 className="text-3xl font-black tracking-[-.04em]">Miasta</h2>
             <p className="mt-4 leading-7 text-[var(--brand-muted)]">
-              Adresy mają format <code>/miasto/nazwa-miasta</code>. Linki poniżej powstają wyłącznie z wartości w kolumnie <code>city</code>. Rekordy z pustym <code>city</code> nie tworzą lokalnych podstron.
+              Lokalizacje, dla których w bazie są już przypisane firmy. Rekordy bez miasta mogą być widoczne w głównej
+              bazie, ale nie pojawiają się w tym lokalnym zestawieniu.
             </p>
             <div className="mt-6 grid gap-2">
               {topCities.length ? topCities.map((item) => (
@@ -75,7 +78,7 @@ export default async function DatabaseIndexPage() {
                   <span>{item.name}</span>
                   <span className="text-[var(--brand-primary-soft)]">{formatNumber(item.count)}</span>
                 </Link>
-              )) : <p className="mt-5 text-[var(--brand-muted)]">Brak miast do wyświetlenia. Uzupełnij kolumnę <code>city</code> w tabeli <code>leads</code>.</p>}
+              )) : <p className="mt-5 text-[var(--brand-muted)]">Brak miast do wyświetlenia.</p>}
             </div>
           </div>
         </div>

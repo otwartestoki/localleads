@@ -4,7 +4,7 @@ export default function StatsSection() {
       <h2 className="text-3xl font-black">Statystyki bazy</h2>
 
       <p className="mt-4 text-[var(--brand-muted)]">
-        Darmowa baza firm jest stale rozwijana. Jeżeli potrzebujesz danych w pliku CSV,
+        Darmowa baza firm jest stale rozwijana. Jeżeli brakuje Ci konkretnej branży, miasta albo zakresu danych,
         skontaktuj się przez formularz kontaktowy.
       </p>
 

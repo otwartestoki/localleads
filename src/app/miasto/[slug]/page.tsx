@@ -44,7 +44,8 @@ export default async function CityLandingPage({ params }: Props) {
             Baza firm: {landing.name}
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-[var(--brand-muted)]">
-            Zobacz firmy z tej lokalizacji dostępne do darmowego przeglądania online. Ta strona powstaje tylko wtedy, gdy rekordy mają uzupełnioną kolumnę <code>city</code>.
+            Zobacz firmy z tej lokalizacji dostępne do darmowego przeglądania online. Przejdź do bazy, żeby filtrować
+            je po branży, frazie i dostępnych kanałach kontaktu.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <Link href="/baza-firm" className={getButtonClass({ tone: 'primary' })}>

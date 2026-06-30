@@ -7,7 +7,7 @@ import { organizationJsonLd,pageMetadata,serviceJsonLd,siteUrl,websiteJsonLd,loc
 
 export const metadata: Metadata = {
  metadataBase:new URL(siteUrl),
- ...pageMetadata({title:site.seo?.title ?? 'LocalLeads — baza leadów B2B CSV',description:site.seo?.description ?? site.description,path:'/'}),
+ ...pageMetadata({title:site.seo?.title ?? 'LocalLeads — darmowa baza firm online',description:site.seo?.description ?? site.description,path:'/'}),
  applicationName:'LocalLeads',
  category:'business'
 };

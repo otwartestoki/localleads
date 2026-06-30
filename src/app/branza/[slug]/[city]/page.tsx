@@ -44,7 +44,8 @@ export default async function IndustryCityLandingPage({ params }: Props) {
             {landing.industryName} — {landing.cityName}
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-[var(--brand-muted)]">
-            To automatycznie wygenerowana podstrona oparta na kolumnach <code>category</code> oraz <code>city</code> w bazie LocalLeads. Możesz przeglądać firmy online za darmo, a brakujące dane zgłosić przez formularz.
+            Zobacz firmy z tej branży w wybranym mieście. Możesz przejść do całej branży, sprawdzić lokalizację albo
+            zgłosić brakujące dane, jeśli zakres jest jeszcze zbyt wąski.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <Link href={`/branza/${landing.industrySlug}`} className={getButtonClass({ tone: 'secondary' })}>
@@ -65,7 +66,8 @@ export default async function IndustryCityLandingPage({ params }: Props) {
           <div className={`${radiusClass()} border border-[var(--brand-line)] bg-[var(--brand-surface)]/75 p-6 md:p-8`}>
             <h2 className="text-3xl font-black tracking-[-.04em]">Podsumowanie</h2>
             <p className="mt-5 leading-8 text-[var(--brand-muted)]">
-              W tej kombinacji znajduje się obecnie <strong className="text-white">{formatNumber(landing.count)}</strong> rekordów. Gdy dodasz kolejne firmy z tą samą branżą i miastem, ta podstrona automatycznie się rozbuduje.
+              W tej kombinacji znajduje się obecnie <strong className="text-white">{formatNumber(landing.count)}</strong> rekordów.
+              Lista rozwija się razem z bazą, więc nowe firmy z tej branży i lokalizacji będą widoczne w tym widoku.
             </p>
           </div>
 

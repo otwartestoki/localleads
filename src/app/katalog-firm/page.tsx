@@ -9,7 +9,7 @@ export const dynamic = 'force-dynamic';
 
 export const metadata = pageMetadata({
   title: 'Katalog firm lokalnych — LocalLeads',
-  description: 'Znajdź lokalne firmy najbliżej siebie. Filtruj po branży, dystansie, ocenie i liczbie opinii.',
+  description: 'Znajdź lokalne firmy najbliżej wybranego punktu. Ustaw lokalizację, promień, branżę, ocenę i liczbę opinii, a potem porównaj wyniki na mapie.',
   path: '/katalog-firm',
 });
 
@@ -26,14 +26,15 @@ export default function LocalBusinessCatalogPage() {
               Znajdź firmy najbliżej siebie
             </h1>
             <p className="mt-5 max-w-3xl text-lg leading-8 text-[var(--brand-muted)]">
-              Widok B2C oparty na lokalizacji, dystansie, ocenach i liczbie opinii. Użyj swojej lokalizacji albo punktu startowego, wybierz promień i porównaj firmy na mapie.
+              Ustaw punkt startowy z GPS, adresu albo mapy, wybierz promień i porównaj firmy według dystansu, ocen oraz
+              liczby opinii. To szybki widok do sprawdzania lokalnych usług w najbliższej okolicy.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Link href="#finder" className={getButtonClass({ tone: 'primary' })}>
-                Otwórz finder
+                Otwórz katalog
               </Link>
               <Link href="/baza-firm" className={getButtonClass({ tone: 'secondary' })}>
-                Wersja B2B
+                Baza B2B
               </Link>
             </div>
           </div>

@@ -11,7 +11,7 @@ import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
   title: 'Blog o leadach B2B, prospectingu i bazach firm',
-  description: 'Poradniki LocalLeads o leadach B2B, lokalnym prospectingu, bazach firm CSV, SEO i sprzedaży do lokalnych biznesów.',
+  description: 'Poradniki LocalLeads o leadach B2B, lokalnym prospectingu, bazach firm online, SEO i sprzedaży do lokalnych biznesów.',
   path: '/blog',
 });
 
@@ -43,7 +43,7 @@ export default async function BlogPage() {
             <div className={`${radiusClass()} card p-7`}>
               <h2 className="text-3xl font-black">{config.emptyTitle ?? 'Brak wpisów'}</h2>
               <p className="mt-3 leading-7">
-                {config.emptyDescription ?? 'Dodaj wpisy w Supabase i ustaw poprawny site_slug, language oraz published.'}
+                {config.emptyDescription ?? 'Wkrótce pojawią się tu poradniki o prospectingu, bazach firm i lokalnym SEO.'}
               </p>
             </div>
           ) : (

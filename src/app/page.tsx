@@ -5,7 +5,7 @@ import { site } from '@/config/site';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: site.seo?.title || 'LocalLeads — baza leadów B2B CSV',
+  title: site.seo?.title || 'LocalLeads — darmowa baza firm online',
   description: site.seo?.description || site.description,
   path: '/',
 });
