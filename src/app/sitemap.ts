@@ -6,7 +6,7 @@ import { getSeoCombinations, seoCities, seoIndustries } from '@/data/seo-pages';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
-  const staticPaths = ['/', '/baza-firm', '/indeks-bazy', '/uslugi', '/oferta', '/o-mnie', '/faq', '/kontakt', '/blog', '/polityka-prywatnosci', '/regulamin', '/polityka-cookies'];
+  const staticPaths = ['/', '/baza-firm', '/katalog-firm', '/indeks-bazy', '/uslugi', '/oferta', '/o-mnie', '/faq', '/kontakt', '/blog', '/polityka-prywatnosci', '/regulamin', '/polityka-cookies'];
   const servicePaths = content.services.map((service) => `/uslugi/${service.slug}`);
 
   const legacyCityPaths = seoCities.map((city) => `/leady/${city.slug}`);

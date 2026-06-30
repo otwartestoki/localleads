@@ -40,6 +40,9 @@ export default function BusinessDatabasePage() {
                 <Link href="/indeks-bazy" className={getButtonClass({ tone: 'secondary' })}>
                   Indeks bazy
                 </Link>
+                <Link href="/katalog-firm" className={getButtonClass({ tone: 'secondary' })}>
+                  Katalog lokalny
+                </Link>
                 <Link href={contactHref({ source: 'baza firm', topic: 'brakująca branża lub miasto' })} className={getButtonClass({ tone: 'secondary' })}>
                   Zgłoś brakujące dane
                 </Link>

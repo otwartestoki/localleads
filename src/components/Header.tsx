@@ -23,6 +23,7 @@ function getNavigationItems() {
     "landing",
     "services",
     "database",
+    "localCatalog",
     "index",
     "landings",
     "about",
@@ -50,6 +51,7 @@ function getNavigationItems() {
   return [
     { label: "Start", href: "/" },
     { label: "Baza firm", href: "/baza-firm" },
+    { label: "Katalog lokalny", href: "/katalog-firm" },
     { label: "Indeks bazy", href: "/indeks-bazy" },
     { label: "O mnie", href: "/o-mnie" },
     { label: "FAQ", href: "/faq" },

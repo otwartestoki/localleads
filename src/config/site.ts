@@ -253,6 +253,13 @@ export const site = {
       "title": "Darmowa baza firm",
       "subtitle": "Przeglądaj i filtruj firmy z bazy online."
     },
+    "localCatalog": {
+      "enabled": true,
+      "href": "/katalog-firm",
+      "label": "Katalog lokalny",
+      "title": "Katalog lokalny",
+      "subtitle": "Znajdź firmy najbliżej wybranej lokalizacji."
+    },
     "index": {
       "enabled": true,
       "href": "/indeks-bazy",
