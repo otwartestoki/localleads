@@ -10,6 +10,10 @@ const MAX_RESULTS = 100;
 
 type BusinessRow = Record<string, string | number | boolean | null | undefined>;
 type LocalSort = 'distance' | 'rating' | 'reviews';
+type CategorySuggestion = {
+  name: string;
+  count: number;
+};
 
 const demoRows: BusinessRow[] = [
   {
@@ -129,6 +133,10 @@ function getLongitude(row: BusinessRow) {
   return rowNumber(row, ['longitude', 'lng']);
 }
 
+function getCategory(row: BusinessRow) {
+  return rowText(row, ['category', 'industry', 'branza']);
+}
+
 function distanceKm(fromLat: number, fromLng: number, toLat: number, toLng: number) {
   const earthRadiusKm = 6371;
   const dLat = ((toLat - fromLat) * Math.PI) / 180;
@@ -166,6 +174,7 @@ function filterRows(rows: BusinessRow[], params: {
   lat: number;
   lng: number;
   radiusKm: number;
+  query: string;
   category: string;
   minRating: number;
   minReviews: number;
@@ -175,6 +184,7 @@ function filterRows(rows: BusinessRow[], params: {
     .filter((row) => getLatitude(row) && getLongitude(row))
     .map((row) => toBusiness(row, params.lat, params.lng))
     .filter((business) => business.distanceKm <= params.radiusKm)
+    .filter((business) => !params.query || normalizeText(business.name).includes(normalizeText(params.query)))
     .filter((business) => !params.category || normalizeText(business.category).includes(normalizeText(params.category)))
     .filter((business) => !params.minRating || business.rating >= params.minRating)
     .filter((business) => !params.minReviews || business.reviews >= params.minReviews);
@@ -190,21 +200,49 @@ function filterRows(rows: BusinessRow[], params: {
   return businesses.slice(0, MAX_RESULTS);
 }
 
+function getCategorySuggestions(rows: BusinessRow[]): CategorySuggestion[] {
+  const counts = new Map<string, number>();
+
+  rows.forEach((row) => {
+    if (!getLatitude(row) || !getLongitude(row)) return;
+
+    const category = getCategory(row);
+    if (!category) return;
+
+    counts.set(category, (counts.get(category) || 0) + 1);
+  });
+
+  return Array.from(counts.entries())
+    .map(([name, count]) => ({ name, count }))
+    .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, 'pl'))
+    .slice(0, 80);
+}
+
+function localResponse(rows: BusinessRow[], filters: Parameters<typeof filterRows>[1], demo = false) {
+  return NextResponse.json({
+    data: filterRows(rows, filters),
+    categories: getCategorySuggestions(rows),
+    error: null,
+    demo,
+  });
+}
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const lat = getSafeNumber(searchParams.get('lat'), 51.7592);
   const lng = getSafeNumber(searchParams.get('lng'), 19.456);
   const radiusKm = Math.min(Math.max(getSafeNumber(searchParams.get('radiusKm'), 5), 1), 50);
+  const query = getSafeString(searchParams.get('q') || searchParams.get('name'));
   const category = getSafeString(searchParams.get('category'));
   const minRating = getSafeNumber(searchParams.get('minRating'), 0);
   const minReviews = getSafeNumber(searchParams.get('minReviews'), 0);
   const sortParam = getSafeString(searchParams.get('sort'));
   const sort: LocalSort = sortParam === 'rating' || sortParam === 'reviews' ? sortParam : 'distance';
   const useDemo = process.env.NODE_ENV === 'development' && searchParams.get('demo') === '1';
-  const filters = { lat, lng, radiusKm, category, minRating, minReviews, sort };
+  const filters = { lat, lng, radiusKm, query, category, minRating, minReviews, sort };
 
   if (useDemo) {
-    return NextResponse.json({ data: filterRows(demoRows, filters), error: null, demo: true });
+    return localResponse(demoRows, filters, true);
   }
 
   if (!SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY) {
@@ -222,11 +260,11 @@ export async function GET(request: Request) {
 
   if (error) {
     if (process.env.NODE_ENV === 'development') {
-      return NextResponse.json({ data: filterRows(demoRows, filters), error: null, demo: true });
+      return localResponse(demoRows, filters, true);
     }
 
     return NextResponse.json({ data: [], error: error.message }, { status: 500 });
   }
 
-  return NextResponse.json({ data: filterRows((data || []) as BusinessRow[], filters), error: null });
+  return localResponse((data || []) as BusinessRow[], filters);
 }

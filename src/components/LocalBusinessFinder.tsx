@@ -1,7 +1,7 @@
 "use client";
 
-import type { FormEvent } from "react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import type { FormEvent, MouseEvent } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { ExternalLink, LocateFixed, MapPin, Navigation, Phone, Search } from "lucide-react";
 import { radiusClass } from "@/lib/style";
@@ -21,10 +21,22 @@ type LocalBusiness = {
   distanceKm: number;
 };
 
+type CategorySuggestion = {
+  name: string;
+  count: number;
+};
+
 type ApiResponse = {
   data: LocalBusiness[];
+  categories?: CategorySuggestion[];
   error: string | null;
   demo?: boolean;
+};
+
+type SearchLocation = {
+  lat: number;
+  lng: number;
+  label: string;
 };
 
 type GoogleMapsApi = {
@@ -42,6 +54,10 @@ type GoogleMapsApi = {
         fullscreenControl?: boolean;
       },
     ) => {
+      addListener: (
+        eventName: string,
+        handler: (event: { latLng?: { lat: () => number; lng: () => number } }) => void,
+      ) => { remove: () => void };
       fitBounds: (bounds: unknown) => void;
       setCenter: (position: { lat: number; lng: number }) => void;
       setZoom: (zoom: number) => void;
@@ -105,10 +121,6 @@ function normalizeUrl(value: string) {
 
 function mapsUrl(business: LocalBusiness) {
   return `https://www.google.com/maps/search/?api=1&query=${business.latitude},${business.longitude}`;
-}
-
-function googleMapsLocationUrl(lat: number, lng: number) {
-  return `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
 }
 
 function googleMapsEmbedUrl(lat: number, lng: number, zoom: number) {
@@ -223,15 +235,18 @@ function GoogleBusinessMap({
   userLocation,
   activeId,
   onActivate,
+  onPickLocation,
 }: {
   businesses: LocalBusiness[];
   userLocation: { lat: number; lng: number };
   activeId: string;
   onActivate: (id: string) => void;
+  onPickLocation: (location: SearchLocation) => void;
 }) {
   const mapElementRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<InstanceType<GoogleMapsApi["maps"]["Map"]> | null>(null);
   const markersRef = useRef<InstanceType<GoogleMapsApi["maps"]["Marker"]>[]>([]);
+  const mapClickListenerRef = useRef<{ remove: () => void } | null>(null);
   const [mapError, setMapError] = useState("");
   const activeBusiness = businesses.find((business) => business.id === activeId) || businesses[0];
   const fallbackBounds = useMemo(
@@ -270,6 +285,17 @@ function GoogleBusinessMap({
             fullscreenControl: true,
           });
         }
+
+        mapClickListenerRef.current?.remove();
+        mapClickListenerRef.current = mapRef.current.addListener("click", (event) => {
+          if (!event.latLng) return;
+
+          onPickLocation({
+            lat: event.latLng.lat(),
+            lng: event.latLng.lng(),
+            label: "Wybrany punkt na mapie",
+          });
+        });
 
         markersRef.current.forEach((marker) => marker.setMap(null));
         markersRef.current = [];
@@ -314,8 +340,22 @@ function GoogleBusinessMap({
 
     return () => {
       disposed = true;
+      mapClickListenerRef.current?.remove();
+      mapClickListenerRef.current = null;
     };
-  }, [activeId, businesses, onActivate, userLocation.lat, userLocation.lng]);
+  }, [activeId, businesses, onActivate, onPickLocation, userLocation.lat, userLocation.lng]);
+
+  const pickFallbackLocation = (event: MouseEvent<HTMLDivElement>) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = clamp((event.clientX - rect.left) / rect.width, 0, 1);
+    const y = clamp((event.clientY - rect.top) / rect.height, 0, 1);
+
+    onPickLocation({
+      lat: fallbackBounds.maxLat - y * (fallbackBounds.maxLat - fallbackBounds.minLat),
+      lng: fallbackBounds.minLng + x * (fallbackBounds.maxLng - fallbackBounds.minLng),
+      label: "Wybrany punkt na mapie",
+    });
+  };
 
   return (
     <div className={`${radiusClass()} relative min-h-[520px] overflow-hidden border border-white/10 bg-[#07111f]`}>
@@ -329,6 +369,22 @@ function GoogleBusinessMap({
             className="pointer-events-none absolute inset-0 h-full w-full border-0"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
+          />
+          <div
+            className="absolute inset-0 z-10 cursor-crosshair"
+            role="button"
+            tabIndex={0}
+            aria-label="Ustaw punkt startowy kliknięciem na mapie"
+            onClick={pickFallbackLocation}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                onPickLocation({
+                  lat: fallbackBounds.centerLat,
+                  lng: fallbackBounds.centerLng,
+                  label: "Wybrany punkt na mapie",
+                });
+              }
+            }}
           />
           <div
             className="absolute z-20 flex h-10 min-w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white bg-[#38bdf8] px-2 text-xs font-black text-slate-950 shadow-[0_0_24px_rgba(56,189,248,.5)]"
@@ -356,26 +412,13 @@ function GoogleBusinessMap({
         </>
       )}
 
-      <div className="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/15 bg-slate-950/85 p-4 text-sm text-white/75 shadow-2xl backdrop-blur">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <div>
-            <p className="font-black text-white">Google Maps</p>
-            <p className="mt-1 text-xs leading-5 text-white/55">
-              {googleMapsApiKey
-                ? "Pinezki pokazują firmy z bazy i Twoją lokalizację."
-                : "To podgląd Google Maps. Dodaj NEXT_PUBLIC_GOOGLE_MAPS_API_KEY, żeby włączyć przesuwaną mapę z natywnymi pinezkami."}
-            </p>
-          </div>
-          <Link
-            href={googleMapsLocationUrl(activeBusiness?.latitude || fallbackBounds.centerLat, activeBusiness?.longitude || fallbackBounds.centerLng)}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-2 text-xs font-black text-white hover:border-[var(--brand-primary)]/60"
-          >
-            <ExternalLink className="h-3.5 w-3.5" />
-            Otwórz w Google
-          </Link>
-        </div>
+      <div className="absolute bottom-4 left-4 right-4 z-30 rounded-2xl border border-white/15 bg-slate-950/85 p-4 text-sm text-white/75 shadow-2xl backdrop-blur">
+        <p className="font-black text-white">Google Maps</p>
+        <p className="mt-1 text-xs leading-5 text-white/55">
+          {googleMapsApiKey
+            ? "Kliknij mapę, żeby ręcznie ustawić środek wyszukiwania."
+            : "Kliknij podgląd mapy, żeby ręcznie ustawić środek wyszukiwania."}
+        </p>
         {mapError ? <p className="mt-2 text-xs font-bold text-amber-100">{mapError}</p> : null}
       </div>
     </div>
@@ -385,11 +428,13 @@ function GoogleBusinessMap({
 export default function LocalBusinessFinder() {
   const [location, setLocation] = useState(defaultLocation);
   const [radiusKm, setRadiusKm] = useState("5");
+  const [nameQuery, setNameQuery] = useState("");
   const [category, setCategory] = useState("");
   const [minRating, setMinRating] = useState("4");
   const [minReviews, setMinReviews] = useState("0");
   const [sort, setSort] = useState("distance");
   const [businesses, setBusinesses] = useState<LocalBusiness[]>([]);
+  const [categorySuggestions, setCategorySuggestions] = useState<CategorySuggestion[]>([]);
   const [activeId, setActiveId] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -406,6 +451,7 @@ export default function LocalBusinessFinder() {
       sort,
     });
 
+    if (nameQuery.trim()) params.set("q", nameQuery.trim());
     if (category.trim()) params.set("category", category.trim());
     if (minRating) params.set("minRating", minRating);
     if (minReviews) params.set("minReviews", minReviews);
@@ -419,11 +465,13 @@ export default function LocalBusinessFinder() {
         const result = (await response.json()) as ApiResponse;
         if (!response.ok || result.error) throw new Error(result.error || "Nie udało się pobrać firm.");
         setBusinesses(result.data || []);
+        setCategorySuggestions(result.categories || []);
         setActiveId(result.data?.[0]?.id || "");
       })
       .catch((fetchError) => {
         if ((fetchError as Error).name !== "AbortError") {
           setBusinesses([]);
+          setCategorySuggestions([]);
           setActiveId("");
           setError((fetchError as Error).message);
         }
@@ -431,7 +479,7 @@ export default function LocalBusinessFinder() {
       .finally(() => setIsLoading(false));
 
     return () => controller.abort();
-  }, [category, location.lat, location.lng, minRating, minReviews, radiusKm, sort]);
+  }, [category, location.lat, location.lng, minRating, minReviews, nameQuery, radiusKm, sort]);
 
   const useBrowserLocation = () => {
     if (!navigator.geolocation) {
@@ -474,6 +522,11 @@ export default function LocalBusinessFinder() {
       .catch((geocodeError) => setLocationMessage((geocodeError as Error).message))
       .finally(() => setIsGeocoding(false));
   };
+
+  const useMapLocation = useCallback((nextLocation: SearchLocation) => {
+    setLocation(nextLocation);
+    setLocationMessage("Ustawiono punkt startowy z mapy.");
+  }, []);
 
   const activeBusiness = businesses.find((business) => business.id === activeId) || businesses[0];
 
@@ -526,19 +579,36 @@ export default function LocalBusinessFinder() {
           <div className="flex items-center justify-between gap-3">
             <div>
               <p className="text-xs font-black uppercase tracking-[.14em] text-[var(--brand-primary-soft)]">Filtry katalogu</p>
-              <p className="mt-1 text-sm font-semibold text-white/45">Zawężaj firmy według branży, promienia i jakości profilu.</p>
+              <p className="mt-1 text-sm font-semibold text-white/45">Zawężaj firmy według nazwy, branży, promienia i jakości profilu.</p>
             </div>
           </div>
 
-          <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-5">
+          <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+            <label className="grid gap-2 text-sm font-bold text-[var(--brand-muted)] xl:col-span-2">
+              Nazwa firmy
+              <input
+                value={nameQuery}
+                onChange={(event) => setNameQuery(event.target.value)}
+                placeholder="np. Studio Nova"
+                className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none placeholder:text-white/35 focus:border-[var(--brand-primary)]/70"
+              />
+            </label>
             <label className="grid gap-2 text-sm font-bold text-[var(--brand-muted)] xl:col-span-2">
               Branża
               <input
+                list="local-category-options"
                 value={category}
                 onChange={(event) => setCategory(event.target.value)}
-                placeholder="np. fryzjer, kosmetyczka"
+                placeholder="wybierz lub wpisz"
                 className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none placeholder:text-white/35 focus:border-[var(--brand-primary)]/70"
               />
+              <datalist id="local-category-options">
+                {categorySuggestions.map((item) => (
+                  <option key={item.name} value={item.name}>
+                    {item.count} firm
+                  </option>
+                ))}
+              </datalist>
             </label>
             <label className="grid gap-2 text-sm font-bold text-[var(--brand-muted)]">
               Promień
@@ -587,7 +657,13 @@ export default function LocalBusinessFinder() {
         </div>
       ) : (
         <div className="grid gap-5 xl:grid-cols-[1fr_420px]">
-          <GoogleBusinessMap businesses={businesses} userLocation={location} activeId={activeBusiness?.id || ""} onActivate={setActiveId} />
+          <GoogleBusinessMap
+            businesses={businesses}
+            userLocation={location}
+            activeId={activeBusiness?.id || ""}
+            onActivate={setActiveId}
+            onPickLocation={useMapLocation}
+          />
 
           <div className={`${radiusClass()} border border-white/10 bg-[var(--brand-surface)]/75 p-4`}>
             <div className="flex items-center justify-between gap-3">
