@@ -170,7 +170,7 @@ function ContactAction({
       rel={href.startsWith("mailto:") || href.startsWith("tel:") ? undefined : "noreferrer"}
       aria-label={label}
       title={label}
-      className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[.04] text-white/72 transition hover:border-[var(--brand-primary)]/55 hover:bg-[var(--brand-primary)]/12 hover:text-[var(--brand-primary-soft)]"
+      className="inline-flex h-9 items-center justify-center gap-1.5 rounded-full border border-white/10 bg-white/[.04] px-3 text-xs font-black text-white/72 transition hover:border-[var(--brand-primary)]/55 hover:bg-[var(--brand-primary)]/12 hover:text-[var(--brand-primary-soft)]"
     >
       {children}
     </Link>
@@ -189,26 +189,29 @@ function LeadContactActions({ lead }: { lead: LeadRecord }) {
       {website ? (
         <ContactAction href={normalizeUrl(website)} label="Otwórz stronę WWW">
           <Globe2 className="h-4 w-4" />
+          WWW
         </ContactAction>
       ) : null}
       {phone ? (
         <ContactAction href={`tel:${phone.replace(/\s+/g, "")}`} label="Zadzwoń">
           <Phone className="h-4 w-4" />
+          Telefon
         </ContactAction>
       ) : null}
       {email ? (
         <ContactAction href={`mailto:${email}`} label="Napisz e-mail">
           <Mail className="h-4 w-4" />
+          E-mail
         </ContactAction>
       ) : null}
       {facebook ? (
         <ContactAction href={normalizeUrl(facebook)} label="Otwórz Facebook">
-          <span className="text-xs font-black">FB</span>
+          Facebook
         </ContactAction>
       ) : null}
       {instagram ? (
         <ContactAction href={normalizeUrl(instagram)} label="Otwórz Instagram">
-          <span className="text-xs font-black">IG</span>
+          Instagram
         </ContactAction>
       ) : null}
       {!website && !phone && !email && !facebook && !instagram ? (
