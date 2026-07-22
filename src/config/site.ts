@@ -77,7 +77,7 @@ export const site = {
     "whatsappUrl": "",
     "messengerUrl": ""
   },
-  "description": "LocalLeads to darmowa baza firm do przeglądania, filtrowania i pracy na kontaktach. Pomaga agencjom, handlowcom i twórcom stron szybciej znaleźć lokalne firmy, sprawdzić dane kontaktowe i oznaczyć rekordy do dalszej pracy.",
+  "description": "LocalLeads to darmowa baza firm do przeglądania i filtrowania. Pomaga agencjom, handlowcom i twórcom stron szybciej znaleźć lokalne firmy oraz sprawdzić dane kontaktowe.",
   "ctaLabel": "Przeglądaj bazę firm",
   "theme": {
     "primary": "#38bdf8",
@@ -360,7 +360,7 @@ export const site = {
   "hero": {
     "eyebrow": "Darmowa baza firm do przeglądania",
     "title": "Darmowa baza firm do prospectingu, SEO i lokalnego researchu",
-    "description": "Przeglądaj firmy, filtruj kontakty, otwieraj strony WWW i social media, kopiuj dane oraz oznaczaj rekordy do dalszej pracy. LocalLeads pomaga agencjom SEO, twórcom stron i handlowcom B2B szybciej sprawdzić lokalny rynek.",
+    "description": "Przeglądaj firmy, filtruj kontakty, otwieraj strony WWW i social media oraz kopiuj dane. LocalLeads pomaga agencjom SEO, twórcom stron i handlowcom B2B szybciej sprawdzić lokalny rynek.",
     "primaryCta": "Przeglądaj bazę firm",
     "primaryHref": "/baza-firm",
     "secondaryCta": "Sprawdź katalog lokalny",
@@ -414,7 +414,7 @@ export const site = {
       "short": "Szukasz firm po frazie, branży, mieście i dostępnych kanałach kontaktu.",
       "shortText": "Najważniejsze dane są dostępne bez logowania.",
       "description": "Otwarta baza firm do filtrowania i pracy na rekordach.",
-      "details": "Wybierasz branżę, miasto lub dowolną frazę, filtrujesz rekordy z WWW, telefonem, e-mailem albo social media i oznaczasz firmy do dalszej pracy.",
+      "details": "Wybierasz branżę, miasto lub dowolną frazę i filtrujesz rekordy z WWW, telefonem, e-mailem albo social media.",
       "price": "darmowe",
       "image": "/media/services-1.webp",
       "category": "Darmowa baza",
@@ -424,7 +424,7 @@ export const site = {
       "bullets": [
         "branża, miasto i fraza",
         "telefon, e-mail, WWW",
-        "status pracy w przeglądarce"
+        "profile w social media"
       ],
       "faq": []
     },
@@ -471,19 +471,19 @@ export const site = {
   ],
   "about": {
     "title": "Po co powstało LocalLeads",
-    "text": "LocalLeads ma być praktycznym miejscem do sprawdzania lokalnych firm: od szybkiego researchu po oznaczanie rekordów do kontaktu.",
+    "text": "LocalLeads ma być praktycznym miejscem do sprawdzania lokalnych firm i szybkiego researchu.",
     "pageTitle": "O mnie",
     "pageLead": "Za LocalLeads stoi praktyczne podejście: baza ma być użyteczna, czytelna i gotowa do pracy, a nie tylko długa.",
     "paragraphs": [
       "Pomysł na LocalLeads powstał przy pracy nad lokalną sprzedażą usług internetowych. Szybko okazało się, że największym problemem nie jest sama oferta, ale uporządkowane znalezienie firm, sprawdzenie kontaktów i szybka kwalifikacja rekordów.",
-      "Dlatego baza jest budowana wokół realnego zastosowania: agencja SEO może szukać firm w wybranej branży, twórca stron może sprawdzić lokalne biznesy z WWW i social media, a handlowiec B2B może oznaczać kontakty do dalszej pracy.",
+      "Dlatego baza jest budowana wokół realnego zastosowania: agencja SEO może szukać firm w wybranej branży, twórca stron może sprawdzić lokalne biznesy z WWW i social media, a handlowiec B2B może przeglądać dostępne dane kontaktowe.",
       "Nie obiecuję magicznej sprzedaży. Udostępniam uporządkowany punkt startowy: dane firmowe, filtry, indeks branż i miast oraz katalog lokalny oparty o mapę."
     ]
   },
   "process": [
     "Wybierasz bazę B2B, indeks albo katalog lokalny",
     "Filtrujesz rekordy po branży, mieście, frazie i dostępnych danych kontaktowych",
-    "Kopiujesz dane, otwierasz WWW/social media i oznaczasz status kontaktu",
+    "Kopiujesz dane i otwierasz WWW lub profile social media",
     "Gdy czegoś brakuje, zgłaszasz konkretną branżę, miasto lub błąd w danych"
   ],
   "partnersSection": {

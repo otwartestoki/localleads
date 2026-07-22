@@ -10,7 +10,7 @@ const MAX_LIMIT = 100;
 const MAX_SEARCH_SCAN_ROWS = 3000;
 
 type LeadRow = Record<string, string | number | boolean | null | undefined>;
-type SortMode = 'newest' | 'name_asc' | 'name_desc' | 'category_asc' | 'city_asc' | 'completeness_desc';
+type SortMode = 'newest' | 'name_asc' | 'name_desc' | 'category_asc' | 'city_asc';
 
 const demoRows: LeadRow[] = [
   {
@@ -162,12 +162,8 @@ function getRowText(row: LeadRow, key: string) {
   return String(row[key] || '').trim();
 }
 
-function getCompletenessScore(row: LeadRow) {
-  return ['website', 'phone', 'email', 'facebook', 'instagram'].filter((key) => hasField(row, key)).length;
-}
-
 function getSortMode(value: string): SortMode {
-  if (['newest', 'name_asc', 'name_desc', 'category_asc', 'city_asc', 'completeness_desc'].includes(value)) {
+  if (['newest', 'name_asc', 'name_desc', 'category_asc', 'city_asc'].includes(value)) {
     return value as SortMode;
   }
 
@@ -189,10 +185,6 @@ function sortRows(rows: LeadRow[], sort: SortMode) {
   if (sort === 'city_asc') {
     return sorted.sort((a, b) => getRowText(a, 'city').localeCompare(getRowText(b, 'city'), 'pl'));
   }
-  if (sort === 'completeness_desc') {
-    return sorted.sort((a, b) => getCompletenessScore(b) - getCompletenessScore(a));
-  }
-
   return sortByCreatedAt(sorted);
 }
 

@@ -22,7 +22,7 @@ export default async function LandingPage({ params }: Props) {
 
           <p className="mt-6 text-lg leading-8 text-[var(--brand-muted)]">
             Ta podstrona porządkuje firmy i zastosowania wokół konkretnego tematu. Przejdź do głównej bazy, żeby
-            filtrować rekordy, sprawdzać kontakty i oznaczać firmy do dalszej pracy.
+            filtrować rekordy i sprawdzać dostępne dane kontaktowe.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
